@@ -1,0 +1,359 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 3.0 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+3.0 K     Trainable params
+0         Non-trainable params
+3.0 K     Total params
+0.012     Total estimated model params size (MB)
+Training model...
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:03<00:00,  3.28it/s, v_num=5uwd]
+
+Epoch 1: 100%|██████| 10/10 [00:02<00:00,  3.62it/s, v_num=5uwd, val_loss=17.30]
+
+
+Epoch 2: 100%|██████| 10/10 [00:02<00:00,  3.54it/s, v_num=5uwd, val_loss=16.40]
+
+
+Epoch 3: 100%|██████| 10/10 [00:02<00:00,  3.60it/s, v_num=5uwd, val_loss=16.00]
+
+Epoch 4: 100%|██████| 10/10 [00:02<00:00,  3.79it/s, v_num=5uwd, val_loss=15.50]
+
+
+Epoch 5: 100%|██████| 10/10 [00:02<00:00,  3.56it/s, v_num=5uwd, val_loss=15.10]
+
+
+Epoch 6: 100%|██████| 10/10 [00:02<00:00,  3.57it/s, v_num=5uwd, val_loss=14.60]
+
+Epoch 7: 100%|██████| 10/10 [00:02<00:00,  3.71it/s, v_num=5uwd, val_loss=14.20]
+
+
+Epoch 8: 100%|██████| 10/10 [00:02<00:00,  3.64it/s, v_num=5uwd, val_loss=13.70]
+
+Epoch 9: 100%|██████| 10/10 [00:02<00:00,  3.71it/s, v_num=5uwd, val_loss=13.30]
+
+
+Epoch 10: 100%|█████| 10/10 [00:02<00:00,  3.62it/s, v_num=5uwd, val_loss=12.90]
+
+
+Epoch 11: 100%|█████| 10/10 [00:02<00:00,  3.61it/s, v_num=5uwd, val_loss=12.40]
+
+
+Epoch 12: 100%|█████| 10/10 [00:02<00:00,  3.66it/s, v_num=5uwd, val_loss=12.00]
+
+Epoch 13: 100%|█████| 10/10 [00:02<00:00,  3.60it/s, v_num=5uwd, val_loss=11.60]
+
+
+Epoch 14: 100%|█████| 10/10 [00:02<00:00,  3.63it/s, v_num=5uwd, val_loss=11.20]
+
+Epoch 15: 100%|█████| 10/10 [00:02<00:00,  3.58it/s, v_num=5uwd, val_loss=10.70]
+
+
+Epoch 16: 100%|█████| 10/10 [00:02<00:00,  3.43it/s, v_num=5uwd, val_loss=10.30]
+
+
+Epoch 17: 100%|█████| 10/10 [00:02<00:00,  3.72it/s, v_num=5uwd, val_loss=9.910]
+
+Epoch 18: 100%|█████| 10/10 [00:02<00:00,  3.56it/s, v_num=5uwd, val_loss=9.480]
+
+
+Epoch 19: 100%|█████| 10/10 [00:02<00:00,  3.69it/s, v_num=5uwd, val_loss=9.070]
+
+
+Epoch 20: 100%|█████| 10/10 [00:02<00:00,  3.60it/s, v_num=5uwd, val_loss=8.670]
+
+Epoch 21: 100%|█████| 10/10 [00:02<00:00,  3.77it/s, v_num=5uwd, val_loss=8.250]
+
+
+Epoch 22: 100%|█████| 10/10 [00:02<00:00,  3.69it/s, v_num=5uwd, val_loss=7.860]
+
+Epoch 23: 100%|█████| 10/10 [00:02<00:00,  3.72it/s, v_num=5uwd, val_loss=7.480]
+
+
+Epoch 24: 100%|█████| 10/10 [00:02<00:00,  3.70it/s, v_num=5uwd, val_loss=7.120]
+
+
+Epoch 25: 100%|█████| 10/10 [00:02<00:00,  3.53it/s, v_num=5uwd, val_loss=6.780]
+
+Epoch 26: 100%|█████| 10/10 [00:02<00:00,  3.74it/s, v_num=5uwd, val_loss=6.460]
+
+
+Epoch 27: 100%|█████| 10/10 [00:02<00:00,  3.43it/s, v_num=5uwd, val_loss=6.170]
+
+
+Epoch 28: 100%|█████| 10/10 [00:02<00:00,  3.61it/s, v_num=5uwd, val_loss=5.890]
+
+Epoch 29: 100%|█████| 10/10 [00:02<00:00,  3.61it/s, v_num=5uwd, val_loss=5.630]
+
+
+Epoch 30: 100%|█████| 10/10 [00:02<00:00,  3.69it/s, v_num=5uwd, val_loss=5.400]
+
+
+Epoch 31: 100%|█████| 10/10 [00:02<00:00,  3.67it/s, v_num=5uwd, val_loss=5.190]
+
+Epoch 32: 100%|█████| 10/10 [00:02<00:00,  3.72it/s, v_num=5uwd, val_loss=5.000]
+
+
+Epoch 33: 100%|█████| 10/10 [00:02<00:00,  3.52it/s, v_num=5uwd, val_loss=4.830]
+
+
+Epoch 34: 100%|█████| 10/10 [00:02<00:00,  3.66it/s, v_num=5uwd, val_loss=4.670]
+
+Epoch 35: 100%|█████| 10/10 [00:02<00:00,  3.56it/s, v_num=5uwd, val_loss=4.520]
+
+
+Epoch 36: 100%|█████| 10/10 [00:02<00:00,  3.71it/s, v_num=5uwd, val_loss=4.390]
+
+
+Epoch 37: 100%|█████| 10/10 [00:02<00:00,  3.61it/s, v_num=5uwd, val_loss=4.260]
+
+Epoch 38: 100%|█████| 10/10 [00:03<00:00,  3.13it/s, v_num=5uwd, val_loss=4.140]
+
+
+Epoch 39: 100%|█████| 10/10 [00:02<00:00,  3.51it/s, v_num=5uwd, val_loss=4.020]
+
+
+Epoch 40: 100%|█████| 10/10 [00:02<00:00,  3.45it/s, v_num=5uwd, val_loss=3.920]
+
+
+Epoch 41: 100%|█████| 10/10 [00:02<00:00,  3.40it/s, v_num=5uwd, val_loss=3.820]
+
+Epoch 42: 100%|█████| 10/10 [00:02<00:00,  3.65it/s, v_num=5uwd, val_loss=3.720]
+
+
+Epoch 43: 100%|█████| 10/10 [00:02<00:00,  3.61it/s, v_num=5uwd, val_loss=3.630]
+
+
+Epoch 44: 100%|█████| 10/10 [00:02<00:00,  3.68it/s, v_num=5uwd, val_loss=3.540]
+
+Epoch 45: 100%|█████| 10/10 [00:02<00:00,  3.60it/s, v_num=5uwd, val_loss=3.450]
+
+
+Epoch 46: 100%|█████| 10/10 [00:02<00:00,  3.79it/s, v_num=5uwd, val_loss=3.370]
+
+
+Epoch 47: 100%|█████| 10/10 [00:02<00:00,  3.55it/s, v_num=5uwd, val_loss=3.300]
+
+Epoch 48: 100%|█████| 10/10 [00:02<00:00,  3.68it/s, v_num=5uwd, val_loss=3.220]
+
+
+Epoch 49: 100%|█████| 10/10 [00:02<00:00,  3.69it/s, v_num=5uwd, val_loss=3.150]
+
+Epoch 50: 100%|█████| 10/10 [00:02<00:00,  3.70it/s, v_num=5uwd, val_loss=3.080]
+
+
+Epoch 51: 100%|█████| 10/10 [00:02<00:00,  3.72it/s, v_num=5uwd, val_loss=3.020]
+
+
+Epoch 52: 100%|█████| 10/10 [00:02<00:00,  3.70it/s, v_num=5uwd, val_loss=2.950]
+
+
+
+Epoch 53: 100%|█████| 10/10 [00:05<00:00,  1.78it/s, v_num=5uwd, val_loss=2.890]
+
+
+
+
+
+
+Epoch 54: 100%|█████| 10/10 [00:06<00:00,  1.64it/s, v_num=5uwd, val_loss=2.840]
+
+
+
+
+
+Epoch 55: 100%|█████| 10/10 [00:05<00:00,  1.68it/s, v_num=5uwd, val_loss=2.780]
+
+
+
+
+
+Epoch 56: 100%|█████| 10/10 [00:06<00:00,  1.64it/s, v_num=5uwd, val_loss=2.730]
+
+
+
+
+
+Epoch 57: 100%|█████| 10/10 [00:06<00:00,  1.65it/s, v_num=5uwd, val_loss=2.720]
+
+
+
+
+
+Epoch 58: 100%|█████| 10/10 [00:06<00:00,  1.62it/s, v_num=5uwd, val_loss=2.640]
+
+
+
+
+Epoch 59: 100%|█████| 10/10 [00:06<00:00,  1.62it/s, v_num=5uwd, val_loss=2.590]
+
+
+
+
+
+Epoch 60: 100%|█████| 10/10 [00:05<00:00,  1.68it/s, v_num=5uwd, val_loss=2.550]
+
+
+
+
+
+Epoch 61: 100%|█████| 10/10 [00:05<00:00,  1.71it/s, v_num=5uwd, val_loss=2.510]
+
+
+
+
+Epoch 62: 100%|█████| 10/10 [00:06<00:00,  1.66it/s, v_num=5uwd, val_loss=2.460]
+
+
+
+
+
+Epoch 63: 100%|█████| 10/10 [00:06<00:00,  1.66it/s, v_num=5uwd, val_loss=2.420]
+
+
+
+
+
+Epoch 64: 100%|█████| 10/10 [00:05<00:00,  1.70it/s, v_num=5uwd, val_loss=2.390]
+
+
+
+
+Epoch 65: 100%|█████| 10/10 [00:05<00:00,  1.70it/s, v_num=5uwd, val_loss=2.350]
+
+
+
+
+
+Epoch 66: 100%|█████| 10/10 [00:05<00:00,  1.69it/s, v_num=5uwd, val_loss=2.320]
+
+
+
+
+Epoch 67: 100%|█████| 10/10 [00:05<00:00,  1.72it/s, v_num=5uwd, val_loss=2.280]
+
+
+
+
+
+Epoch 68: 100%|█████| 10/10 [00:05<00:00,  1.71it/s, v_num=5uwd, val_loss=2.250]
+
+
+
+
+
+Epoch 69: 100%|█████| 10/10 [00:06<00:00,  1.66it/s, v_num=5uwd, val_loss=2.230]
+
+
+
+
+Epoch 70: 100%|█████| 10/10 [00:05<00:00,  1.68it/s, v_num=5uwd, val_loss=2.180]
+
+
+
+
+
+Epoch 71: 100%|█████| 10/10 [00:05<00:00,  1.69it/s, v_num=5uwd, val_loss=2.160]
+
+
+
+
+
+Epoch 72: 100%|█████| 10/10 [00:06<00:00,  1.67it/s, v_num=5uwd, val_loss=2.120]
+
+
+
+
+Epoch 73: 100%|█████| 10/10 [00:06<00:00,  1.64it/s, v_num=5uwd, val_loss=2.100]
+
+
+
+
+
+Epoch 74: 100%|█████| 10/10 [00:05<00:00,  1.70it/s, v_num=5uwd, val_loss=2.070]
+
+
+
+
+
+Epoch 75: 100%|█████| 10/10 [00:05<00:00,  1.71it/s, v_num=5uwd, val_loss=2.040]
+
+
+
+
+Epoch 76: 100%|█████| 10/10 [00:05<00:00,  1.68it/s, v_num=5uwd, val_loss=2.030]
+
+
+
+
+
+Epoch 77: 100%|█████| 10/10 [00:06<00:00,  1.65it/s, v_num=5uwd, val_loss=1.980]
+
+
+
+
+
+Epoch 78: 100%|█████| 10/10 [00:06<00:00,  1.64it/s, v_num=5uwd, val_loss=1.970]
+
+
+
+
+
+Epoch 79: 100%|█████| 10/10 [00:05<00:00,  1.67it/s, v_num=5uwd, val_loss=1.930]
+
+
+
+
+Epoch 80: 100%|█████| 10/10 [00:05<00:00,  1.69it/s, v_num=5uwd, val_loss=1.910]
+
+
+
+
+
+Epoch 81: 100%|█████| 10/10 [00:05<00:00,  1.75it/s, v_num=5uwd, val_loss=1.880]
+
+
+
+
+Epoch 82: 100%|█████| 10/10 [00:05<00:00,  1.80it/s, v_num=5uwd, val_loss=1.860]
+
+
+
+
+
+Epoch 83: 100%|█████| 10/10 [00:05<00:00,  1.74it/s, v_num=5uwd, val_loss=1.840]
+
+
+
+
+Epoch 84: 100%|█████| 10/10 [00:05<00:00,  1.73it/s, v_num=5uwd, val_loss=1.820]
+
+
+
+
+Epoch 85: 100%|█████| 10/10 [00:05<00:00,  1.78it/s, v_num=5uwd, val_loss=1.830]
+
+
+
+
+
+
+
+Epoch 86: 100%|█████| 10/10 [00:06<00:00,  1.45it/s, v_num=5uwd, val_loss=1.770]
+
+
+
+
+
+Epoch 87: 100%|█████| 10/10 [00:06<00:00,  1.49it/s, v_num=5uwd, val_loss=1.780]
+Validation DataLoader 0:  10%|█▉                 | 1/10 [00:00<00:02,  3.81it/s]

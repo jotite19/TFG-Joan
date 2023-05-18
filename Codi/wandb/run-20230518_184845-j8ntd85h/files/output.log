@@ -1,0 +1,110 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:04<00:00,  2.34it/s, v_num=d85h]
+
+
+Epoch 1: 100%|██████| 10/10 [00:03<00:00,  2.69it/s, v_num=d85h, val_loss=92.40]
+
+
+Epoch 2: 100%|██████| 10/10 [00:03<00:00,  2.84it/s, v_num=d85h, val_loss=26.30]
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.85it/s, v_num=d85h, val_loss=5.500]
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.89it/s, v_num=d85h, val_loss=4.790]
+
+
+Epoch 5: 100%|██████| 10/10 [00:03<00:00,  2.82it/s, v_num=d85h, val_loss=5.050]
+
+
+Epoch 6: 100%|██████| 10/10 [00:03<00:00,  2.89it/s, v_num=d85h, val_loss=3.970]
+
+
+
+Epoch 7: 100%|██████| 10/10 [00:03<00:00,  2.83it/s, v_num=d85h, val_loss=3.570]
+
+
+Epoch 8: 100%|██████| 10/10 [00:03<00:00,  2.79it/s, v_num=d85h, val_loss=3.430]
+
+
+
+Epoch 9: 100%|██████| 10/10 [00:04<00:00,  2.09it/s, v_num=d85h, val_loss=3.230]
+
+
+
+Epoch 10: 100%|█████| 10/10 [00:04<00:00,  2.12it/s, v_num=d85h, val_loss=3.030]
+
+
+
+Epoch 11: 100%|█████| 10/10 [00:03<00:00,  2.78it/s, v_num=d85h, val_loss=2.870]
+
+
+Epoch 12: 100%|█████| 10/10 [00:03<00:00,  2.61it/s, v_num=d85h, val_loss=2.710]
+
+
+
+Epoch 13: 100%|█████| 10/10 [00:04<00:00,  2.42it/s, v_num=d85h, val_loss=2.570]
+
+
+
+
+Epoch 14: 100%|█████| 10/10 [00:05<00:00,  1.90it/s, v_num=d85h, val_loss=2.440]
+
+
+
+Epoch 15: 100%|█████| 10/10 [00:03<00:00,  2.51it/s, v_num=d85h, val_loss=2.330]
+
+
+Epoch 16: 100%|█████| 10/10 [00:03<00:00,  2.56it/s, v_num=d85h, val_loss=2.220]
+
+
+
+Epoch 17: 100%|█████| 10/10 [00:03<00:00,  2.91it/s, v_num=d85h, val_loss=2.120]
+
+
+Epoch 18: 100%|█████| 10/10 [00:03<00:00,  2.81it/s, v_num=d85h, val_loss=2.030]
+
+
+
+Epoch 19: 100%|█████| 10/10 [00:03<00:00,  2.72it/s, v_num=d85h, val_loss=1.950]
+
+
+Epoch 20: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=d85h, val_loss=1.880]
+
+
+
+Epoch 21: 100%|█████| 10/10 [00:03<00:00,  2.77it/s, v_num=d85h, val_loss=1.820]
+
+
+
+Epoch 22: 100%|█████| 10/10 [00:05<00:00,  1.96it/s, v_num=d85h, val_loss=1.770]
+
+
+
+Epoch 23: 100%|█████| 10/10 [00:03<00:00,  2.55it/s, v_num=d85h, val_loss=1.710]
+
+
+Epoch 24: 100%|█████| 10/10 [00:03<00:00,  2.71it/s, v_num=d85h, val_loss=1.670]
+
+Validation DataLoader 0:  30%|█████▋             | 3/10 [00:00<00:01,  3.95it/s]
+`Trainer.fit` stopped: `max_epochs=25` reached.

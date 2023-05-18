@@ -1,0 +1,234 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 3.0 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+3.0 K     Trainable params
+0         Non-trainable params
+3.0 K     Total params
+0.012     Total estimated model params size (MB)
+Training model...
+
+
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:07<00:00,  1.40it/s, v_num=p38i]
+
+
+
+
+
+Epoch 1: 100%|██████| 10/10 [00:06<00:00,  1.63it/s, v_num=p38i, val_loss=4.720]
+
+
+
+
+
+Epoch 2: 100%|██████| 10/10 [00:05<00:00,  1.68it/s, v_num=p38i, val_loss=3.970]
+
+
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:06<00:00,  1.61it/s, v_num=p38i, val_loss=3.450]
+
+
+
+
+
+Epoch 4: 100%|██████| 10/10 [00:05<00:00,  1.68it/s, v_num=p38i, val_loss=3.080]
+
+
+
+
+
+Epoch 5: 100%|██████| 10/10 [00:06<00:00,  1.64it/s, v_num=p38i, val_loss=2.820]
+
+
+
+
+Epoch 6: 100%|██████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=2.630]
+
+
+
+
+
+Epoch 7: 100%|██████| 10/10 [00:05<00:00,  1.78it/s, v_num=p38i, val_loss=2.510]
+
+
+
+
+
+Epoch 8: 100%|██████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=2.410]
+
+
+
+
+Epoch 9: 100%|██████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=2.340]
+
+
+
+
+
+Epoch 10: 100%|█████| 10/10 [00:05<00:00,  1.77it/s, v_num=p38i, val_loss=2.270]
+
+
+
+
+Epoch 11: 100%|█████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=2.220]
+
+
+
+
+
+Epoch 12: 100%|█████| 10/10 [00:05<00:00,  1.76it/s, v_num=p38i, val_loss=2.170]
+
+
+
+
+
+Epoch 13: 100%|█████| 10/10 [00:05<00:00,  1.78it/s, v_num=p38i, val_loss=2.130]
+
+
+
+
+Epoch 14: 100%|█████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=2.090]
+
+
+
+
+
+Epoch 15: 100%|█████| 10/10 [00:05<00:00,  1.72it/s, v_num=p38i, val_loss=2.050]
+
+
+
+
+Epoch 16: 100%|█████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=2.010]
+
+
+
+
+
+Epoch 17: 100%|█████| 10/10 [00:05<00:00,  1.70it/s, v_num=p38i, val_loss=1.980]
+
+
+
+
+
+Epoch 18: 100%|█████| 10/10 [00:05<00:00,  1.71it/s, v_num=p38i, val_loss=1.940]
+
+
+
+
+
+Epoch 19: 100%|█████| 10/10 [00:05<00:00,  1.72it/s, v_num=p38i, val_loss=1.910]
+
+
+
+
+Epoch 20: 100%|█████| 10/10 [00:05<00:00,  1.77it/s, v_num=p38i, val_loss=1.870]
+
+
+
+
+
+Epoch 21: 100%|█████| 10/10 [00:05<00:00,  1.75it/s, v_num=p38i, val_loss=1.840]
+
+
+
+
+Epoch 22: 100%|█████| 10/10 [00:05<00:00,  1.67it/s, v_num=p38i, val_loss=1.810]
+
+
+
+
+
+Epoch 23: 100%|█████| 10/10 [00:05<00:00,  1.70it/s, v_num=p38i, val_loss=1.770]
+
+
+
+
+
+Epoch 24: 100%|█████| 10/10 [00:05<00:00,  1.72it/s, v_num=p38i, val_loss=1.740]
+
+
+
+
+Epoch 25: 100%|█████| 10/10 [00:05<00:00,  1.72it/s, v_num=p38i, val_loss=1.710]
+
+
+
+
+
+Epoch 26: 100%|█████| 10/10 [00:05<00:00,  1.71it/s, v_num=p38i, val_loss=1.680]
+
+
+
+
+
+Epoch 27: 100%|█████| 10/10 [00:05<00:00,  1.78it/s, v_num=p38i, val_loss=1.650]
+
+
+
+
+Epoch 28: 100%|█████| 10/10 [00:05<00:00,  1.83it/s, v_num=p38i, val_loss=1.620]
+
+
+
+
+Epoch 29: 100%|█████| 10/10 [00:05<00:00,  1.78it/s, v_num=p38i, val_loss=1.590]
+
+
+
+
+
+Epoch 30: 100%|█████| 10/10 [00:05<00:00,  1.78it/s, v_num=p38i, val_loss=1.560]
+
+
+
+
+
+Epoch 31: 100%|█████| 10/10 [00:06<00:00,  1.56it/s, v_num=p38i, val_loss=1.540]
+
+
+
+
+
+
+Epoch 32: 100%|█████| 10/10 [00:06<00:00,  1.47it/s, v_num=p38i, val_loss=1.510]
+
+
+
+
+
+Epoch 33: 100%|█████| 10/10 [00:06<00:00,  1.63it/s, v_num=p38i, val_loss=1.490]
+
+
+
+Epoch 34: 100%|█████| 10/10 [00:05<00:00,  1.89it/s, v_num=p38i, val_loss=1.460]
+
+
+Epoch 35: 100%|█████| 10/10 [00:02<00:00,  3.65it/s, v_num=p38i, val_loss=1.440]
+
+
+Epoch 36: 100%|█████| 10/10 [00:02<00:00,  3.51it/s, v_num=p38i, val_loss=1.410]
+
+Epoch 37: 100%|█████| 10/10 [00:02<00:00,  3.64it/s, v_num=p38i, val_loss=1.390]
+
+
+Epoch 38: 100%|█████| 10/10 [00:02<00:00,  3.53it/s, v_num=p38i, val_loss=1.370]
+
+
+Epoch 39: 100%|█████| 10/10 [00:02<00:00,  3.61it/s, v_num=p38i, val_loss=1.340]
+
+
+Epoch 40: 100%|█████| 10/10 [00:03<00:00,  2.70it/s, v_num=p38i, val_loss=1.320]
+
+Validation DataLoader 0:  70%|█████████████▎     | 7/10 [00:02<00:01,  2.76it/s]

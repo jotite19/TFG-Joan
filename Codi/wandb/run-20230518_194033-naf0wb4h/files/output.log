@@ -1,0 +1,48 @@
+
+Training model...
+[33m[W 2023-05-18 19:40:34,317][39m Trial 0 failed with parameters: {'cutoff': 3.2246458230770196, 'n_atom_basis': 23} because of the following error: NameError("name 'wandb_logger' is not defined").
+Traceback (most recent call last):
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 128, in objective
+    trainingModel(task, qm9data, 5) # epoch
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 98, in trainingModel
+    logger=wandb_logger,
+NameError: name 'wandb_logger' is not defined
+[33m[W 2023-05-18 19:40:34,318][39m Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 140, in <module>
+    study.optimize(objective, n_trials=10)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/study.py", line 425, in optimize
+    _optimize(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 128, in objective
+    trainingModel(task, qm9data, 5) # epoch
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 98, in trainingModel
+    logger=wandb_logger,
+NameError: name 'wandb_logger' is not defined
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 140, in <module>
+    study.optimize(objective, n_trials=10)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/study.py", line 425, in optimize
+    _optimize(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 128, in objective
+    trainingModel(task, qm9data, 5) # epoch
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 98, in trainingModel
+    logger=wandb_logger,
+NameError: name 'wandb_logger' is not defined. Did you mean: 'WandbLogger'?

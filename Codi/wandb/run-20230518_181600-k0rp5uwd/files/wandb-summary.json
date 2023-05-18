@@ -1,0 +1,1 @@
+{"val_loss": 1.7770843505859375, "val_energy_U0_MAE": 1.0396963357925415, "epoch": 86, "trainer/global_step": 869, "_timestamp": 1684427235.7166874, "_runtime": 675.4498794078827, "_step": 103, "train_loss": 1.8846145868301392, "train_energy_U0_MAE": 1.0511105060577393, "_wandb": {"runtime": 683}}

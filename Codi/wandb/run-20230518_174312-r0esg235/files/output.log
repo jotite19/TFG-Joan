@@ -1,0 +1,102 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:03<00:00,  2.64it/s, v_num=g235]
+
+
+
+Epoch 1: 100%|██████| 10/10 [00:03<00:00,  2.75it/s, v_num=g235, val_loss=6.140]
+
+
+Epoch 2: 100%|██████| 10/10 [00:03<00:00,  2.86it/s, v_num=g235, val_loss=3.960]
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.68it/s, v_num=g235, val_loss=3.760]
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.78it/s, v_num=g235, val_loss=2.880]
+
+
+
+Epoch 5: 100%|██████| 10/10 [00:03<00:00,  2.87it/s, v_num=g235, val_loss=2.920]
+
+
+Epoch 6: 100%|██████| 10/10 [00:03<00:00,  2.81it/s, v_num=g235, val_loss=2.710]
+
+
+Epoch 7: 100%|██████| 10/10 [00:03<00:00,  2.91it/s, v_num=g235, val_loss=2.620]
+
+
+Epoch 8: 100%|██████| 10/10 [00:03<00:00,  2.76it/s, v_num=g235, val_loss=2.530]
+
+
+
+Epoch 9: 100%|██████| 10/10 [00:03<00:00,  2.88it/s, v_num=g235, val_loss=2.460]
+
+
+Epoch 10: 100%|█████| 10/10 [00:03<00:00,  2.78it/s, v_num=g235, val_loss=2.380]
+
+
+Epoch 11: 100%|█████| 10/10 [00:03<00:00,  2.86it/s, v_num=g235, val_loss=2.300]
+
+
+Epoch 12: 100%|█████| 10/10 [00:03<00:00,  2.91it/s, v_num=g235, val_loss=2.230]
+
+
+
+Epoch 13: 100%|█████| 10/10 [00:03<00:00,  2.83it/s, v_num=g235, val_loss=2.160]
+
+
+Epoch 14: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=g235, val_loss=2.100]
+
+
+Epoch 15: 100%|█████| 10/10 [00:03<00:00,  2.73it/s, v_num=g235, val_loss=2.040]
+
+
+Epoch 16: 100%|█████| 10/10 [00:03<00:00,  2.84it/s, v_num=g235, val_loss=1.980]
+
+
+
+Epoch 17: 100%|█████| 10/10 [00:03<00:00,  2.77it/s, v_num=g235, val_loss=1.920]
+
+
+Epoch 18: 100%|█████| 10/10 [00:03<00:00,  2.87it/s, v_num=g235, val_loss=1.870]
+
+
+Epoch 19: 100%|█████| 10/10 [00:03<00:00,  2.79it/s, v_num=g235, val_loss=1.820]
+
+
+
+Epoch 20: 100%|█████| 10/10 [00:03<00:00,  2.79it/s, v_num=g235, val_loss=1.770]
+
+
+Epoch 21: 100%|█████| 10/10 [00:03<00:00,  2.87it/s, v_num=g235, val_loss=1.720]
+
+
+Epoch 22: 100%|█████| 10/10 [00:03<00:00,  2.76it/s, v_num=g235, val_loss=1.680]
+
+
+Epoch 23: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=g235, val_loss=1.630]
+
+
+
+Epoch 24: 100%|█████| 10/10 [00:03<00:00,  2.85it/s, v_num=g235, val_loss=1.590]
+Validation DataLoader 0:  50%|█████████▌         | 5/10 [00:01<00:01,  3.74it/s]
+
+`Trainer.fit` stopped: `max_epochs=25` reached.

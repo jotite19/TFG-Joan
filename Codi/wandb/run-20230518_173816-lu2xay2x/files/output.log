@@ -1,0 +1,87 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:04<00:00,  2.46it/s, v_num=ay2x]
+
+
+
+Epoch 1: 100%|██████| 10/10 [00:03<00:00,  2.71it/s, v_num=ay2x, val_loss=6.830]
+
+
+Epoch 2: 100%|██████| 10/10 [00:03<00:00,  2.66it/s, v_num=ay2x, val_loss=4.950]
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.88it/s, v_num=ay2x, val_loss=4.420]
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.78it/s, v_num=ay2x, val_loss=3.310]
+
+
+Epoch 5: 100%|██████| 10/10 [00:03<00:00,  2.68it/s, v_num=ay2x, val_loss=2.970]
+
+
+
+Epoch 6: 100%|██████| 10/10 [00:03<00:00,  2.67it/s, v_num=ay2x, val_loss=2.550]
+
+
+Epoch 7: 100%|██████| 10/10 [00:03<00:00,  2.80it/s, v_num=ay2x, val_loss=2.280]
+
+
+Epoch 8: 100%|██████| 10/10 [00:03<00:00,  2.88it/s, v_num=ay2x, val_loss=2.030]
+
+
+
+Epoch 9: 100%|██████| 10/10 [00:03<00:00,  2.91it/s, v_num=ay2x, val_loss=1.850]
+
+
+Epoch 10: 100%|█████| 10/10 [00:03<00:00,  2.71it/s, v_num=ay2x, val_loss=1.710]
+
+
+Epoch 11: 100%|█████| 10/10 [00:03<00:00,  2.89it/s, v_num=ay2x, val_loss=1.600]
+
+
+
+Epoch 12: 100%|█████| 10/10 [00:03<00:00,  2.71it/s, v_num=ay2x, val_loss=1.510]
+
+
+Epoch 13: 100%|█████| 10/10 [00:03<00:00,  2.83it/s, v_num=ay2x, val_loss=1.450]
+
+
+Epoch 14: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=ay2x, val_loss=1.390]
+
+
+Epoch 15: 100%|█████| 10/10 [00:03<00:00,  2.79it/s, v_num=ay2x, val_loss=1.340]
+
+
+
+Epoch 16: 100%|█████| 10/10 [00:03<00:00,  2.76it/s, v_num=ay2x, val_loss=1.300]
+
+
+Epoch 17: 100%|█████| 10/10 [00:03<00:00,  2.72it/s, v_num=ay2x, val_loss=1.270]
+
+
+Epoch 18: 100%|█████| 10/10 [00:03<00:00,  2.81it/s, v_num=ay2x, val_loss=1.230]
+
+
+
+Epoch 19: 100%|█████| 10/10 [00:03<00:00,  2.75it/s, v_num=ay2x, val_loss=1.200]
+Validation DataLoader 0:  50%|█████████▌         | 5/10 [00:01<00:01,  3.70it/s]
+
+`Trainer.fit` stopped: `max_epochs=20` reached.

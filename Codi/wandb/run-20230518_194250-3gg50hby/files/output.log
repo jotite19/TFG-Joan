@@ -1,0 +1,79 @@
+[32m[I 2023-05-18 19:42:51,152][39m A new study created in memory with name: no-name-0a0cb237-7ea5-4468-b500-17f73e83be6c
+WARNING:root:Split file was given, but `num_train (80000) != len(train_idx)` (1000)!
+WARNING:root:Split file was given, but `num_val (20000) != len(val_idx)` (1000)!
+100%|███████████████████████████████████████████| 10/10 [00:00<00:00, 10.34it/s]
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 13.8 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+13.8 K    Trainable params
+0         Non-trainable params
+13.8 K    Total params
+0.055     Total estimated model params size (MB)
+Importing data from the QM9 dataset
+Setting up model
+Training model...
+
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:03<00:00,  2.70it/s, v_num=0hby]
+
+
+Epoch 1: 100%|██████| 10/10 [00:03<00:00,  2.92it/s, v_num=0hby, val_loss=56.40]
+
+
+Epoch 2: 100%|██████| 10/10 [00:03<00:00,  2.70it/s, v_num=0hby, val_loss=18.00]
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.78it/s, v_num=0hby, val_loss=9.450]
+
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.92it/s, v_num=0hby, val_loss=10.20]
+
+Validation DataLoader 0:  50%|█████████▌         | 5/10 [00:01<00:01,  3.61it/s]
+`Trainer.fit` stopped: `max_epochs=5` reached.
+[33m[W 2023-05-18 19:43:26,152][39m Trial 0 failed with parameters: {'cutoff': 4.262516056675979, 'n_atom_basis': 27} because of the following error: NameError("name 'trainer' is not defined").
+Traceback (most recent call last):
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 128, in objective
+    return trainer.callback_metrics["val_loss"].item()
+NameError: name 'trainer' is not defined
+[33m[W 2023-05-18 19:43:26,153][39m Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 140, in <module>
+    study.optimize(objective, n_trials=10)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/study.py", line 425, in optimize
+    _optimize(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 128, in objective
+    return trainer.callback_metrics["val_loss"].item()
+NameError: name 'trainer' is not defined
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 140, in <module>
+    study.optimize(objective, n_trials=10)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/study.py", line 425, in optimize
+    _optimize(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/joan/.local/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/home/joan/Desktop/TFG-Joan/Codi/./optunaTest.py", line 128, in objective
+    return trainer.callback_metrics["val_loss"].item()
+NameError: name 'trainer' is not defined. Did you mean: 'Trainer'?

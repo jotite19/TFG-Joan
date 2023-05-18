@@ -1,0 +1,17 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./test.py", line 124, in <module>
+    trainingModel(5) #epoch
+  File "/home/joan/Desktop/TFG-Joan/Codi/./test.py", line 87, in trainingModel
+    callbacks = [TuneReportCallback(metrics, on="validation_end")]
+NameError: name 'metrics' is not defined
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./test.py", line 124, in <module>
+    trainingModel(5) #epoch
+  File "/home/joan/Desktop/TFG-Joan/Codi/./test.py", line 87, in trainingModel
+    callbacks = [TuneReportCallback(metrics, on="validation_end")]
+NameError: name 'metrics' is not defined
+Training model...

@@ -1,0 +1,182 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:03<00:00,  2.66it/s, v_num=oc5o]
+
+
+Epoch 1: 100%|██████| 10/10 [00:03<00:00,  2.67it/s, v_num=oc5o, val_loss=6.940]
+
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.73it/s, v_num=oc5o, val_loss=6.010]
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.81it/s, v_num=oc5o, val_loss=5.680]
+
+
+
+Epoch 5: 100%|██████| 10/10 [00:03<00:00,  2.66it/s, v_num=oc5o, val_loss=5.320]
+
+
+Epoch 6: 100%|██████| 10/10 [00:03<00:00,  2.65it/s, v_num=oc5o, val_loss=4.940]
+
+
+Epoch 7: 100%|██████| 10/10 [00:03<00:00,  2.83it/s, v_num=oc5o, val_loss=4.560]
+
+
+
+Epoch 8: 100%|██████| 10/10 [00:03<00:00,  2.76it/s, v_num=oc5o, val_loss=4.250]
+
+
+Epoch 9: 100%|██████| 10/10 [00:03<00:00,  2.83it/s, v_num=oc5o, val_loss=3.910]
+
+
+Epoch 10: 100%|█████| 10/10 [00:03<00:00,  2.77it/s, v_num=oc5o, val_loss=3.630]
+
+
+Epoch 11: 100%|█████| 10/10 [00:03<00:00,  2.87it/s, v_num=oc5o, val_loss=3.320]
+
+
+
+Epoch 12: 100%|█████| 10/10 [00:03<00:00,  2.77it/s, v_num=oc5o, val_loss=3.050]
+
+
+Epoch 13: 100%|█████| 10/10 [00:03<00:00,  2.80it/s, v_num=oc5o, val_loss=2.800]
+
+
+Epoch 14: 100%|█████| 10/10 [00:03<00:00,  2.87it/s, v_num=oc5o, val_loss=2.560]
+
+
+Epoch 15: 100%|█████| 10/10 [00:03<00:00,  2.88it/s, v_num=oc5o, val_loss=2.370]
+
+
+
+Epoch 16: 100%|█████| 10/10 [00:03<00:00,  2.83it/s, v_num=oc5o, val_loss=2.160]
+
+
+Epoch 17: 100%|█████| 10/10 [00:03<00:00,  2.84it/s, v_num=oc5o, val_loss=2.000]
+
+
+Epoch 18: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=oc5o, val_loss=1.840]
+
+
+Epoch 19: 100%|█████| 10/10 [00:03<00:00,  2.72it/s, v_num=oc5o, val_loss=1.700]
+
+
+
+Epoch 20: 100%|█████| 10/10 [00:03<00:00,  2.84it/s, v_num=oc5o, val_loss=1.590]
+
+
+Epoch 21: 100%|█████| 10/10 [00:03<00:00,  2.84it/s, v_num=oc5o, val_loss=1.500]
+
+
+Epoch 22: 100%|█████| 10/10 [00:03<00:00,  2.85it/s, v_num=oc5o, val_loss=1.390]
+
+
+Epoch 23: 100%|█████| 10/10 [00:03<00:00,  2.87it/s, v_num=oc5o, val_loss=1.340]
+
+
+
+Epoch 24: 100%|█████| 10/10 [00:03<00:00,  2.72it/s, v_num=oc5o, val_loss=1.240]
+
+
+Epoch 25: 100%|█████| 10/10 [00:03<00:00,  2.85it/s, v_num=oc5o, val_loss=1.180]
+
+
+Epoch 26: 100%|█████| 10/10 [00:03<00:00,  2.82it/s, v_num=oc5o, val_loss=1.130]
+
+
+Epoch 27: 100%|█████| 10/10 [00:03<00:00,  2.88it/s, v_num=oc5o, val_loss=1.070]
+
+
+
+Epoch 28: 100%|█████| 10/10 [00:03<00:00,  2.78it/s, v_num=oc5o, val_loss=1.030]
+
+
+Epoch 29: 100%|█████| 10/10 [00:03<00:00,  2.69it/s, v_num=oc5o, val_loss=0.996]
+
+
+Epoch 30: 100%|█████| 10/10 [00:03<00:00,  2.79it/s, v_num=oc5o, val_loss=0.957]
+
+
+
+Epoch 31: 100%|█████| 10/10 [00:03<00:00,  2.68it/s, v_num=oc5o, val_loss=0.942]
+
+
+Epoch 32: 100%|█████| 10/10 [00:03<00:00,  2.83it/s, v_num=oc5o, val_loss=0.926]
+
+
+Epoch 33: 100%|█████| 10/10 [00:03<00:00,  2.84it/s, v_num=oc5o, val_loss=0.903]
+
+
+
+Epoch 34: 100%|█████| 10/10 [00:03<00:00,  2.84it/s, v_num=oc5o, val_loss=0.910]
+
+
+Epoch 35: 100%|█████| 10/10 [00:03<00:00,  2.89it/s, v_num=oc5o, val_loss=0.846]
+
+
+Epoch 36: 100%|█████| 10/10 [00:03<00:00,  2.68it/s, v_num=oc5o, val_loss=0.827]
+
+
+
+Epoch 37: 100%|█████| 10/10 [00:03<00:00,  2.87it/s, v_num=oc5o, val_loss=0.813]
+
+
+Epoch 38: 100%|█████| 10/10 [00:03<00:00,  2.76it/s, v_num=oc5o, val_loss=0.795]
+
+
+Epoch 39: 100%|█████| 10/10 [00:03<00:00,  2.89it/s, v_num=oc5o, val_loss=0.790]
+
+
+Epoch 40: 100%|█████| 10/10 [00:03<00:00,  2.80it/s, v_num=oc5o, val_loss=0.774]
+
+
+
+Epoch 41: 100%|█████| 10/10 [00:03<00:00,  2.72it/s, v_num=oc5o, val_loss=0.788]
+
+
+Epoch 42: 100%|█████| 10/10 [00:03<00:00,  2.79it/s, v_num=oc5o, val_loss=0.852]
+
+
+Epoch 43: 100%|█████| 10/10 [00:03<00:00,  2.78it/s, v_num=oc5o, val_loss=0.777]
+
+
+Epoch 44: 100%|█████| 10/10 [00:03<00:00,  2.89it/s, v_num=oc5o, val_loss=0.759]
+
+
+
+Epoch 45: 100%|█████| 10/10 [00:03<00:00,  2.82it/s, v_num=oc5o, val_loss=0.777]
+
+
+Epoch 46: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=oc5o, val_loss=0.752]
+
+
+Epoch 47: 100%|█████| 10/10 [00:03<00:00,  2.89it/s, v_num=oc5o, val_loss=0.735]
+
+
+Epoch 48: 100%|█████| 10/10 [00:03<00:00,  2.90it/s, v_num=oc5o, val_loss=0.700]
+
+
+
+Epoch 49: 100%|█████| 10/10 [00:03<00:00,  2.92it/s, v_num=oc5o, val_loss=0.731]
+Validation DataLoader 0:  60%|███████████▍       | 6/10 [00:01<00:01,  3.81it/s]
+
+`Trainer.fit` stopped: `max_epochs=50` reached.

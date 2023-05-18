@@ -1,0 +1,47 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:05<00:00,  1.75it/s, v_num=ut1s]
+
+
+
+Epoch 1: 100%|██████| 10/10 [00:03<00:00,  2.67it/s, v_num=ut1s, val_loss=5.780]
+
+
+Epoch 2: 100%|██████| 10/10 [00:03<00:00,  2.72it/s, v_num=ut1s, val_loss=4.270]
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.53it/s, v_num=ut1s, val_loss=3.260]
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.58it/s, v_num=ut1s, val_loss=2.660]
+
+Validation DataLoader 0:  80%|███████████████▏   | 8/10 [00:02<00:00,  3.37it/s]
+`Trainer.fit` stopped: `max_epochs=5` reached.
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./test.py", line 127, in <module>
+    log_hyperparameters()
+NameError: name 'log_hyperparameters' is not defined
+Traceback (most recent call last):
+  File "/home/joan/Desktop/TFG-Joan/Codi/./test.py", line 127, in <module>
+    log_hyperparameters()
+
+NameError: name 'log_hyperparameters' is not defined

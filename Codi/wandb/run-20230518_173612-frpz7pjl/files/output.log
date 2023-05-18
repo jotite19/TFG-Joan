@@ -1,0 +1,54 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:03<00:00,  2.69it/s, v_num=7pjl]
+
+
+
+Epoch 1: 100%|██████| 10/10 [00:04<00:00,  2.45it/s, v_num=7pjl, val_loss=67.30]
+
+
+Epoch 2: 100%|██████| 10/10 [00:03<00:00,  2.75it/s, v_num=7pjl, val_loss=34.40]
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:03<00:00,  2.90it/s, v_num=7pjl, val_loss=23.00]
+
+
+Epoch 4: 100%|██████| 10/10 [00:03<00:00,  2.61it/s, v_num=7pjl, val_loss=20.40]
+
+
+Epoch 5: 100%|██████| 10/10 [00:03<00:00,  2.92it/s, v_num=7pjl, val_loss=19.50]
+
+
+
+Epoch 6: 100%|██████| 10/10 [00:03<00:00,  2.64it/s, v_num=7pjl, val_loss=18.50]
+
+
+Epoch 7: 100%|██████| 10/10 [00:03<00:00,  2.78it/s, v_num=7pjl, val_loss=17.40]
+
+
+Epoch 8: 100%|██████| 10/10 [00:03<00:00,  2.70it/s, v_num=7pjl, val_loss=16.50]
+
+
+
+Epoch 9: 100%|██████| 10/10 [00:03<00:00,  2.76it/s, v_num=7pjl, val_loss=15.60]
+Validation DataLoader 0:  50%|█████████▌         | 5/10 [00:01<00:01,  3.73it/s]
+
+`Trainer.fit` stopped: `max_epochs=10` reached.

@@ -1,0 +1,42 @@
+{
+    "os": "Linux-5.19.0-41-generic-x86_64-with-glibc2.35",
+    "python": "3.10.6",
+    "heartbeatAt": "2023-05-18T15:42:08.353473",
+    "startedAt": "2023-05-18T15:42:07.623905",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/joan/Desktop/TFG-Joan/Codi/./test.py",
+    "codePath": "Codi/test.py",
+    "git": {
+        "remote": "https://github.com/jotite19/TFG-Joan.git",
+        "commit": "abdda1945d159d0529ba2c46fc8dc3f75d2bdd3b"
+    },
+    "email": "jotite19@gmail.com",
+    "root": "/home/joan/Desktop/TFG-Joan",
+    "host": "joan-VirtualBox",
+    "username": "joan",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 1,
+    "cpu_count_logical": 1,
+    "cpu_freq": {
+        "current": 3992.5,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3992.5,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 77.69377899169922,
+        "used": 27.766735076904297
+    },
+    "memory": {
+        "total": 3.8317604064941406
+    }
+}

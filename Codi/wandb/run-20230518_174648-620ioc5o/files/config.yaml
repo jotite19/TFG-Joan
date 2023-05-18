@@ -1,0 +1,78 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.6
+    cli_version: 0.15.3
+    framework: lightning
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1684424808.702454
+    t:
+      1:
+      - 1
+      - 9
+      - 55
+      2:
+      - 1
+      - 9
+      - 55
+      3:
+      - 7
+      - 23
+      4: 3.10.6
+      5: 0.15.3
+      8:
+      - 5
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: val_loss
+      5: 1
+      6:
+      - 1
+    - 1: val_energy_U0_MAE
+      5: 1
+      6:
+      - 1
+    - 1: epoch
+      5: 1
+      6:
+      - 1
+    - 1: train_loss
+      5: 1
+      6:
+      - 1
+    - 1: train_energy_U0_MAE
+      5: 1
+      6:
+      - 1
+model:
+  desc: null
+  value: null
+outputs:
+  desc: null
+  value:
+  - "ModelOutput(\n  (loss_fn): MSELoss()\n  (train_metrics): ModuleDict(\n    (MAE):\
+    \ MeanAbsoluteError()\n  )\n  (val_metrics): ModuleDict(\n    (MAE): MeanAbsoluteError()\n\
+    \  )\n  (test_metrics): ModuleDict(\n    (MAE): MeanAbsoluteError()\n  )\n)"
+optimizer_cls:
+  desc: null
+  value: AdamW
+optimizer_args/lr:
+  desc: null
+  value: 0.0001
+scheduler_cls:
+  desc: null
+  value: null
+scheduler_args:
+  desc: null
+  value: null
+scheduler_monitor:
+  desc: null
+  value: null
+warmup_steps:
+  desc: null
+  value: 0

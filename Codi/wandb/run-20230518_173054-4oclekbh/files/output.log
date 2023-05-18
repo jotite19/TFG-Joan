@@ -1,0 +1,39 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name    | Type                   | Params
+---------------------------------------------------
+0 | model   | NeuralNetworkPotential | 16.4 K
+1 | outputs | ModuleList             | 0
+---------------------------------------------------
+16.4 K    Trainable params
+0         Non-trainable params
+16.4 K    Total params
+0.066     Total estimated model params size (MB)
+Training model...
+
+
+
+Epoch 0: 100%|██████████████████████| 10/10 [00:05<00:00,  1.72it/s, v_num=ekbh]
+
+
+
+Epoch 1: 100%|█████| 10/10 [00:03<00:00,  2.56it/s, v_num=ekbh, val_loss=1.6e+3]
+
+
+
+Epoch 2: 100%|████| 10/10 [00:04<00:00,  2.36it/s, v_num=ekbh, val_loss=1.08e+3]
+
+
+
+
+Epoch 3: 100%|██████| 10/10 [00:04<00:00,  2.05it/s, v_num=ekbh, val_loss=682.0]
+
+Validation DataLoader 0:  60%|███████████▍       | 6/10 [00:03<00:02,  1.98it/s]
+
+`Trainer.fit` stopped: `max_epochs=4` reached.
