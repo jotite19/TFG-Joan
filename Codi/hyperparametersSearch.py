@@ -9,21 +9,21 @@ import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning import Trainer
 import optuna
+from optuna.integration.wandb import WeightsAndBiasesCallback
 
 
 qm9tut = './qm9tut'
 if not os.path.exists('qm9tut'):
     os.makedirs(qm9tut)
-%rm split.npz
 
-def main(cutoff,n_atom_basis,lr):  
+def get_data(data_split,cutoff):
 	qm9data = QM9(
 	    './qm9.db', 
-	    batch_size=10,
-	    num_train=8000,
-	    num_val=2000,
+	    batch_size=data_split[0],
+	    num_train=data_split[1],
+	    num_val=data_split[2],
 	    transforms=[
-		trn.ASENeighborList(cutoff=5.),
+		trn.ASENeighborList(cutoff=cutoff),
 		trn.RemoveOffsets(QM9.U0, remove_mean=True, remove_atomrefs=True),
 		trn.CastTo32()
 	    ],
@@ -33,7 +33,11 @@ def main(cutoff,n_atom_basis,lr):
 	    pin_memory=False, # set to false, when not using a GPU
 	    load_properties=[QM9.U0], #only load U0 property
 	)
+	return qm9data
+
+def main(cutoff,n_atom_basis,lr,wandb_logger,m_epochs, data_split):  
 	
+	qm9data = get_data(data_split,cutoff)
 	qm9data.prepare_data()
 	qm9data.setup()    
 
@@ -80,36 +84,46 @@ def main(cutoff,n_atom_basis,lr):
 	
 	wandb_logger = WandbLogger()
 	trainer = Trainer(logger=wandb_logger)
-
-
 	trainer = pl.Trainer(
 	    callbacks=callbacks,
 	    logger= wandb_logger,
 	    default_root_dir=qm9tut,
-	    max_epochs=20,
+	    max_epochs=m_epochs,
 	)
 	trainer.fit(task, datamodule=qm9data)
+	
+	qm9data = get_data(data_split,cutoff)
+	qm9data.prepare_data()
+	qm9data.setup()    
 	return trainer.validate(task, datamodule=qm9data)
 	
 
 def objective(trial):
     # Define hyperparameters to search over
-    
     lr = trial.suggest_float(name='lr', low=1e-5, high=1e-3)
-    #lr = 1e-5
+    #lr = 0.0009246828110953161
     
-    cutoff = int(trial.suggest_float(name='cutoff', low=3, high=8))
-    #cutoff = 5
+    cutoff = int(trial.suggest_float(name='cutoff', low=3, high=10,log=True))
+    #cutoff = 4
     
     n_atom_basis = int(trial.suggest_loguniform('n_atom_basis', 20, 50))
-    #n_atom_basis = 20	
+    #n_atom_basis = 26
+   
+    m_epochs = 2
+    data_split = [10,80,20] #B_size, train, val
     
-    val_output = main(cutoff,n_atom_basis,lr)
     
-    return val_output[0]["val_loss"]
+    val_output = main(cutoff,n_atom_basis,lr,wandb_logger,m_epochs, data_split)
+    print("\n",val_output[0].keys(),"\n") 
+    
+    return val_output[0]["val_loss"]ll
+
+wandbc = WeightsAndBiasesCallback(metric_name="val_loss")
 
 study = optuna.create_study(direction='minimize')
-study.optimize(objective, n_trials=1000)
+study.optimize(objective, n_trials=1,  callbacks=[wandbc])
 
 best_params = study.best_params
 print('Best parameters:', best_params)
+
+
