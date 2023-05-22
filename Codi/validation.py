@@ -53,7 +53,8 @@ def train_model(cutoff, n_atom_basis, lr, m_epochs, data_split):
         representation=schnet,
         input_modules=[pairwise_distance],
         output_modules=[pred_U0],
-        postprocessors=[trn.CastTo64(), trn.AddOffsets(QM9.U0, add_mean=True, add_atomrefs=True)]
+        postprocessors=[trn.CastTo64(), 
+        trn.AddOffsets(QM9.U0, add_mean=True, add_atomrefs=True)]
     )
 
     output_U0 = spk.task.ModelOutput(
@@ -107,18 +108,16 @@ def main(cutoff, n_atom_basis, lr, m_epochs, data_split):
     return evaluate_model(trainer, data_split, cutoff,task)
 
 
-
-
 def objective(trial):
     # Define hyperparameters to search over
-    lr = trial.suggest_float(name='lr', low=0.00030, high=0.00100)
-    #lr = 0.0003143
+    #lr = trial.suggest_float(name='lr', low=0.00030, high=0.00100)
+    lr = 0.0003143
     
-    cutoff = int(trial.suggest_float(name='cutoff', low=3, high=4,log=True))
-    #cutoff = 4
+    #cutoff = int(trial.suggest_float(name='cutoff', low=3, high=4,log=True))
+    cutoff = 4
     
-    n_atom_basis = int(trial.suggest_loguniform('n_atom_basis', 37, 49))
-    #n_atom_basis = 42
+    #n_atom_basis = int(trial.suggest_loguniform('n_atom_basis', 37, 49))
+    n_atom_basis = 42
    
     m_epochs = 20
     data_split = [10, 800, 200]  # B_size, train, val
@@ -131,8 +130,9 @@ def objective(trial):
 wandbc = WeightsAndBiasesCallback(metric_name="val_energy_U0_MAE")
 
 study = optuna.create_study(direction='minimize')
-study.optimize(objective, n_trials=20,  callbacks=[wandbc])
+study.optimize(objective, n_trials=1,  callbacks=[wandbc])
 
 best_params = study.best_params
+
 print('Best parameters:', best_params)
 
