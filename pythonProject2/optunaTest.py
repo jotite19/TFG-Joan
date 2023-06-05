@@ -11,9 +11,9 @@ import wandb
 from pytorch_lightning import Trainer
 import optuna
 
-def get_data(data_split, dataCutoff):
+def get_data(data_split, dataCutoff, path):
     qm9data = QM9(
-        './qm9.db',
+        path,
         batch_size=data_split[0],
         num_train=data_split[1],
         num_val=data_split[2],
@@ -30,7 +30,7 @@ def get_data(data_split, dataCutoff):
     return qm9data
 
 def train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_split):
-    qm9data = get_data(data_split, dataCutoff)
+    qm9data = get_data(data_split, dataCutoff, './qm9.db')
     qm9data.prepare_data()
     qm9data.setup()
 
@@ -90,12 +90,12 @@ def train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_spl
 
     return trainer
 
-def evaluate_model(trainer, data_split, cutoff, task):
-    qm9data = get_data(data_split, cutoff)
+def evaluate_model(trainer, data_split, cutoff, ckpt, database):
+    qm9data = get_data(data_split, cutoff, database)
     qm9data.prepare_data()
     qm9data.setup()
 
-    return trainer.validate(task, datamodule=qm9data)
+    return trainer.validate(datamodule=qm9data, ckpt_path=ckpt)
 
 def main():
     # Define hyperparameters to search over
@@ -114,8 +114,7 @@ def main():
 
     train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_split)
 
-if __name__ == '__main__':
-
+def sweepFunc():
     sweep_configuration = {
         'method': 'bayes',
         'name': 'Sampling',
@@ -125,7 +124,7 @@ if __name__ == '__main__':
         },
         'parameters': {
             'batch_size': {'values': [512]},
-            'epochs': {'values': [22]},
+            'epochs': {'values': [25]},
             'lr': {'values': [0.001]},
             'trainingCutoff': {'distribution': 'q_uniform', 'min': 3, 'max': 9, 'q': 1},
             'dataCutoff': {'distribution': 'q_uniform', 'min': 3, 'max': 9, 'q': 1},
@@ -137,13 +136,14 @@ if __name__ == '__main__':
         'method': 'grid',
         'name': 'Sampling',
         'metric': {
+
             'goal': 'minimize',
             'name': 'val_loss'
         },
         'parameters': {
             'batch_size': {'values': [512]},
-            'epochs': {'values': [60, 70, 80]},
-            'lr': {'values': [0.0001]},
+            'epochs': {'values': [40, 50]},
+            'lr': {'values': [0.001]},
             'trainingCutoff': {'values': [5]},
             'dataCutoff': {'values': [5]},
             'n_atom_basis': {'values': [30]}
@@ -151,7 +151,16 @@ if __name__ == '__main__':
     }
 
     sweep_id = wandb.sweep(
-        sweep=sweep_configuration_lr,
+        sweep=sweep_configuration,
         project='sweep'
     )
     wandb.agent(sweep_id, function=main, count=40)
+
+if __name__ == '__main__':
+
+    trainer = pl.Trainer()
+    data_split = [100, 1000, 2100]
+
+    #sweepFunc()
+    evaluate_model(trainer, data_split, 5, 'artifacts/model-suzgoern-v15/model.ckpt', 'test.db')
+
