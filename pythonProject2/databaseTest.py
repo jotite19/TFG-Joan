@@ -30,15 +30,31 @@ def test2(path):
     return sum_rows
 
 
-def create_new_db(original_path, new_path):
+def create_new_db(original_path, new_path, start):
     original_db = connect(original_path)
     new_db = connect(new_path)
-    new_db.metadata = original_db.metadata
-    # Iterate over the rows in the original database and filter
-    for row in original_db.select():
-        # if 'F' in row.formula:
-        if row.natoms < 16:
-            new_db.write(row)
+    rows = original_db.select()
+    total = 0
+    for row in rows:
+        if row.natoms <= 18:
+            if total > start:
+                new_db.write(row)
+        total += 1
+        print(total)
+
+
+def test3(original_path, new_path):
+    iteration = 1
+    id_list = []
+    original_db = connect(original_path)
+    new_db = connect(new_path)
+    rows = original_db.select()
+    for row in rows:
+        if row.natoms <= 18:
+            id_list.append(iteration)
+            iteration += 1
+    new_db.delete(id_list)
+    print(len(id_list))
 
 
 def num_atoms_freq(db):
@@ -100,10 +116,8 @@ def plot_atoms():
 
 if __name__ == '__main__':
 
-
-
     # ase db qm9.db -w
-    # create_new_db('qm9.db', 'under_16_atom.db')
+    create_new_db('qm9.db', 'test.db', 31310)
     # plot_atoms()
     # print(test2('qm9.db'))
     # new_db = connect('plus_16_atom.db')
