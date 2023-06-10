@@ -12,6 +12,7 @@ import wandb
 from pytorch_lightning import Trainer
 import optuna
 
+from databaseTest import create_new_db
 
 def data_split_fun(path, train, val):
     db = connect(path)
@@ -191,9 +192,15 @@ def sweep_func():
     wandb.agent(sweep_id, function=main, count=10)
 
 
-def main():
-    training_path = 'under_16_atom.db'
-    validate_path = 'plus_16_atom.db'
+def main(training_path, validate_path):
+
+    original_db = connect('qm9.db')
+    new_db = connect(training_path)
+    new_db.metadata = original_db.metadata
+
+    original_db = connect('qm9.db')
+    new_db = connect(validate_path)
+    new_db.metadata = original_db.metadata
 
     # CLEANING DATA SPLIT:
     if os.path.exists('./split.npz'):
@@ -206,18 +213,17 @@ def main():
     data_cutoff = 5
     n_atom_basis = 38
 
-
     # DATA FOR TRAINING:
-    t, v = data_split_fun(training_path, 0.9, 0.1)
+    t, v = data_split_fun(training_path, 0.8, 0.2)
     data_split = [512, t, v]  # B_size, train, val
-    qm9data = get_data(data_split, data_cutoff, training_path)
-    qm9data.prepare_data()
-    qm9data.setup()
+    qm9data_train = get_data(data_split, data_cutoff, training_path)
+    qm9data_train.prepare_data()
+    qm9data_train.setup()
 
     trainer, task = model_startup(training_cutoff, data_cutoff, n_atom_basis, lr, m_epochs, True)
 
-    train_model(trainer, task, qm9data)
-    print(validate_model(trainer, task, qm9data))
+    train_model(trainer, task, qm9data_train)
+    print(trainer.validate(task, datamodule=qm9data_train))
 
     # CLEANING DATA SPLIT:
     os.remove('./split.npz')
@@ -226,10 +232,10 @@ def main():
     # DATA FOR VALIDATION:
     t, v = data_split_fun(validate_path, 0, 1)
     data_split = [512, t, v]
-    qm9data = get_data(data_split, data_cutoff, validate_path)
-    qm9data.setup()
+    qm9data_val = get_data(data_split, data_cutoff, validate_path)
+    qm9data_val.setup()
 
-    print(validate_model(trainer, task, qm9data))
+    print(trainer.validate(task, datamodule=qm9data_val))
 
     # CLEANING DATA SPLIT:
     os.remove('./split.npz')
@@ -237,6 +243,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    create_new_db('qm9.db', 'under_18_atom.db', 101974)
+
+    training_path = 'under_18_atom.db'
+    validate_path = 'qm9.db'
+
+    main(training_path, validate_path)
+    main(training_path, validate_path)
+
+
 
 
