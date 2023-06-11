@@ -30,31 +30,18 @@ def test2(path):
     return sum_rows
 
 
-def create_new_db(original_path, new_path, start):
+
+def create_new_db(original_path, new_path, start, condition):
     original_db = connect(original_path)
     new_db = connect(new_path)
     rows = original_db.select()
     total = 0
     for row in rows:
-        if row.natoms <= 18:
+        if condition(row):
             if total > start:
                 new_db.write(row)
         total += 1
         print(total)
-
-
-def test3(original_path, new_path):
-    iteration = 1
-    id_list = []
-    original_db = connect(original_path)
-    new_db = connect(new_path)
-    rows = original_db.select()
-    for row in rows:
-        if row.natoms <= 18:
-            id_list.append(iteration)
-            iteration += 1
-    new_db.delete(id_list)
-    print(len(id_list))
 
 
 def num_atoms_freq(db):
@@ -98,12 +85,10 @@ def plot_atoms():
     normalized_frequencies = [normalized_frequencies[i] for i in sorted_indices]
 
     # Plot the frequencies as a bar plot with custom styling
-    plt.bar(elements, normalized_frequencies, color='#e58888', edgecolor='black')
-    plt.xlabel('N_atoms', fontweight='bold')
-    plt.ylabel('Frequency', fontweight='bold')
-    plt.title('Number of atoms', fontweight='bold', fontsize=14)
-    plt.xticks(fontweight='bold')
-    plt.yticks(fontweight='bold')
+    plt.bar(elements, normalized_frequencies, color='#e58888')
+    plt.xlabel('nAtoms', fontweight='bold')
+    plt.ylabel('Frequencia', fontweight='bold')
+    plt.title('Frequencia de molecules per nAtoms', fontweight='bold', fontsize=14)
     plt.grid(axis='y', linestyle='--', alpha=0.5)
     plt.tight_layout()
 
@@ -113,11 +98,38 @@ def plot_atoms():
     # Display the plot
     plt.show()
 
+def plot_dictionary_data(dictionary, plot_name):
+    x = []
+    y = []
+    for key, value in dictionary.items():
+        # Extract the number from the key
+        number = int(key.split('/')[2].split('_')[0])
+        x.append(number)
+        y.append(value)
+
+    plt.figure(figsize=(8, 6))  # Adjust the figure size
+    plt.plot(x, y, marker='o', linestyle='-', color='b', linewidth=2)  # Customize line style and color
+    plt.xlabel('nAtoms', fontsize=12)  # Set x-axis label and font size
+    plt.ylabel('Val_loss', fontsize=12)  # Set y-axis label and font size
+    plt.title('Loss en validació en funció de número de atoms', fontsize=14)  # Set plot title and font size
+    plt.xticks(fontsize=10)  # Adjust x-axis tick font size
+    plt.yticks(fontsize=10)  # Adjust y-axis tick font size
+    plt.grid(True)  # Add grid lines
+    plt.tight_layout()  # Improve spacing between elements
+    plt.savefig(plot_name)
+
+def num_atoms_database():
+    for i in range(25, 26):
+        def custom_condition(row):
+            return row.natoms == i
+        path = f'./Databases/{str(i)}_atoms.db'
+
+        create_new_db('qm9.db', path, 0, custom_condition)
 
 if __name__ == '__main__':
 
     # ase db qm9.db -w
-    create_new_db('qm9.db', 'test.db', 31310)
+    num_atoms_database()
     # plot_atoms()
     # print(test2('qm9.db'))
     # new_db = connect('plus_16_atom.db')

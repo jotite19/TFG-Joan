@@ -12,7 +12,7 @@ import wandb
 from pytorch_lightning import Trainer
 import optuna
 
-from databaseTest import create_new_db
+from databaseTest import create_new_db, plot_dictionary_data
 
 def data_split_fun(path, train, val):
     db = connect(path)
@@ -192,14 +192,10 @@ def sweep_func():
     wandb.agent(sweep_id, function=main, count=10)
 
 
-def main(training_path, validate_path):
+def main(training_path, validate_paths, folds):
 
     original_db = connect('qm9.db')
     new_db = connect(training_path)
-    new_db.metadata = original_db.metadata
-
-    original_db = connect('qm9.db')
-    new_db = connect(validate_path)
     new_db.metadata = original_db.metadata
 
     # CLEANING DATA SPLIT:
@@ -207,7 +203,7 @@ def main(training_path, validate_path):
         os.remove('./split.npz')
         os.remove('./splitting.lock')
 
-    m_epochs = 20
+    m_epochs = 25
     lr = 0.001
     training_cutoff = 5
     data_cutoff = 5
@@ -226,30 +222,78 @@ def main(training_path, validate_path):
     print(trainer.validate(task, datamodule=qm9data_train))
 
     # CLEANING DATA SPLIT:
-    os.remove('./split.npz')
-    os.remove('./splitting.lock')
+    if os.path.exists('./split.npz'):
+        os.remove('./split.npz')
+        os.remove('./splitting.lock')
 
-    # DATA FOR VALIDATION:
-    t, v = data_split_fun(validate_path, 0, 1)
-    data_split = [512, t, v]
-    qm9data_val = get_data(data_split, data_cutoff, validate_path)
-    qm9data_val.setup()
+    val_results = {}
+    for path in validate_paths:
+        val_results[path] = 0
+    for i in range(folds):
+        for path in validate_paths:
 
-    print(trainer.validate(task, datamodule=qm9data_val))
+            # GIVE METADATA
+            original_db = connect('qm9.db')
+            new_db = connect(path)
+            new_db.metadata = original_db.metadata
 
-    # CLEANING DATA SPLIT:
-    os.remove('./split.npz')
-    os.remove('./splitting.lock')
+            # DATA FOR VALIDATION:
+            t, v = data_split_fun(path, 0, 1)
+            data_split = [512, t, v]
+            qm9data_val = get_data(data_split, data_cutoff, path)
+            qm9data_val.setup()
+
+            output = trainer.validate(task, datamodule=qm9data_val)
+
+            print()
+            print("VALIDATION MADE WITH: ", path)
+            print(output)
+
+            val_results[path] += output[0]['val_loss']
+
+            # CLEANING DATA SPLIT:
+            os.remove('./split.npz')
+            os.remove('./splitting.lock')
+
+    for key in  val_results:
+        val_results[key] = val_results[key]/folds
+
+    return val_results
 
 
 if __name__ == '__main__':
-    create_new_db('qm9.db', 'under_18_atom.db', 101974)
 
-    training_path = 'under_18_atom.db'
-    validate_path = 'qm9.db'
+    # QM9 test
+    train_path = 'qm9.db'
 
-    main(training_path, validate_path)
-    main(training_path, validate_path)
+    folder_path = './Databases'
+    val_paths = []
+    for item in os.listdir(folder_path):
+        item_path = os.path.join(folder_path, item)
+        item_path = item_path.replace('\\', '/')
+        val_paths.append(item_path)
+
+    val_loss_dic = main(train_path, val_paths, 4)
+    plot_dictionary_data(val_loss_dic, './Plots/T_qm9_V_all')
+
+    # UNDER 18 test
+    train_path = 'under_18_atom.db'
+
+    folder_path = './Databases'
+    val_paths = []
+    for item in os.listdir(folder_path):
+        item_path = os.path.join(folder_path, item)
+        item_path = item_path.replace('\\', '/')
+        val_paths.append(item_path)
+
+
+    val_loss_dic = main(train_path, val_paths, 4)
+    plot_dictionary_data(val_loss_dic, './Plots/T_und18_V_all_1')
+    val_loss_dic = main(train_path, val_paths, 4)
+    plot_dictionary_data(val_loss_dic, './Plots/T_und18_V_all_2')
+
+
+
 
 
 
