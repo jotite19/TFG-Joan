@@ -30,20 +30,6 @@ def test2(path):
     return sum_rows
 
 
-
-def create_new_db(original_path, new_path, start, condition):
-    original_db = connect(original_path)
-    new_db = connect(new_path)
-    rows = original_db.select()
-    total = 0
-    for row in rows:
-        if condition(row):
-            if total > start:
-                new_db.write(row)
-        total += 1
-        print(total)
-
-
 def num_atoms_freq(db):
     freq = {}
     for row in db.select():
@@ -71,32 +57,30 @@ def element_freq(db):
 def plot_atoms():
     db = connect('qm9.db')
 
-    # freq = element_freq(db)
-    freq = num_atoms_freq(db)
+    freq = element_freq(db)
 
     elements = list(freq.keys())
     frequencies = list(freq.values())
 
     db_len = len(db)
-    normalized_frequencies = [element/db_len for element in frequencies]
+    normalized_frequencies = [element / db_len for element in frequencies]
 
     sorted_indices = np.argsort(normalized_frequencies)[::-1]
     elements = [elements[i] for i in sorted_indices]
     normalized_frequencies = [normalized_frequencies[i] for i in sorted_indices]
 
-    # Plot the frequencies as a bar plot with custom styling
+    plt.figure(figsize=(8, 6))
     plt.bar(elements, normalized_frequencies, color='#e58888')
-    plt.xlabel('nAtoms', fontweight='bold')
-    plt.ylabel('Frequencia', fontweight='bold')
-    plt.title('Frequencia de molecules per nAtoms', fontweight='bold', fontsize=14)
+    plt.xlabel('nAtoms', fontsize=12)
+    plt.ylabel('Frequencia', fontsize=12)
+    plt.title('Frequencia de molecules per nAtoms', fontsize=14)
+    plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.yticks(fontsize=10)
     plt.grid(axis='y', linestyle='--', alpha=0.5)
     plt.tight_layout()
-
-    # Rotate x-axis labels if needed
-    plt.xticks(rotation=45, ha='right')
-
-    # Display the plot
+    plt.savefig('plot_atoms.png')
     plt.show()
+
 
 def plot_dictionary_data(dictionary, plot_name):
     x = []
@@ -118,6 +102,7 @@ def plot_dictionary_data(dictionary, plot_name):
     plt.tight_layout()  # Improve spacing between elements
     plt.savefig(plot_name)
 
+
 def num_atoms_database():
     for i in range(25, 26):
         def custom_condition(row):
@@ -126,12 +111,40 @@ def num_atoms_database():
 
         create_new_db('qm9.db', path, 0, custom_condition)
 
+
+def create_new_db(original_path, new_path, start, condition):
+    original_db = connect(original_path)
+    new_db = connect(new_path)
+    rows = original_db.select()
+    total = 0
+    for row in rows:
+        if condition(row):
+            if total > start:
+                new_db.write(row)
+        total += 1
+        print(total)
+
+
+def custom_condition(row):
+    return row.natoms <= 17
+
+
 if __name__ == '__main__':
 
     # ase db qm9.db -w
-    num_atoms_database()
+    # num_atoms_database()
     # plot_atoms()
     # print(test2('qm9.db'))
     # new_db = connect('plus_16_atom.db')
     # print(len(new_db))
 
+    original_path = 'qm9.db'
+    new_path = 'test.db'
+    start = 0
+
+    new_db = connect(new_path)
+    rows = new_db.select()
+    for row in rows:
+        print(row.natoms)
+    
+    create_new_db(original_path, new_path, start, custom_condition)

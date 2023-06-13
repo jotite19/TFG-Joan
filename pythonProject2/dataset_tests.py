@@ -14,6 +14,12 @@ import optuna
 
 from databaseTest import create_new_db, plot_dictionary_data
 
+
+def clean_files():
+    if os.path.exists('./split.npz'):
+        os.remove('./split.npz')
+        os.remove('./splitting.lock')
+
 def data_split_fun(path, train, val):
     db = connect(path)
     db_len = len(db)
@@ -199,9 +205,7 @@ def main(training_path, validate_paths, folds):
     new_db.metadata = original_db.metadata
 
     # CLEANING DATA SPLIT:
-    if os.path.exists('./split.npz'):
-        os.remove('./split.npz')
-        os.remove('./splitting.lock')
+    clean_files()
 
     m_epochs = 25
     lr = 0.001
@@ -221,10 +225,7 @@ def main(training_path, validate_paths, folds):
     train_model(trainer, task, qm9data_train)
     print(trainer.validate(task, datamodule=qm9data_train))
 
-    # CLEANING DATA SPLIT:
-    if os.path.exists('./split.npz'):
-        os.remove('./split.npz')
-        os.remove('./splitting.lock')
+    clean_files()
 
     val_results = {}
     for path in validate_paths:
@@ -233,12 +234,11 @@ def main(training_path, validate_paths, folds):
         for path in validate_paths:
 
             # GIVE METADATA
-            original_db = connect('qm9.db')
             new_db = connect(path)
             new_db.metadata = original_db.metadata
 
             # DATA FOR VALIDATION:
-            t, v = data_split_fun(path, 0, 1)
+            t, v = data_split_fun(path, 0.2, 0.8)
             data_split = [512, t, v]
             qm9data_val = get_data(data_split, data_cutoff, path)
             qm9data_val.setup()
@@ -251,11 +251,9 @@ def main(training_path, validate_paths, folds):
 
             val_results[path] += output[0]['val_loss']
 
-            # CLEANING DATA SPLIT:
-            os.remove('./split.npz')
-            os.remove('./splitting.lock')
+            clean_files()
 
-    for key in  val_results:
+    for key in val_results:
         val_results[key] = val_results[key]/folds
 
     return val_results
@@ -263,9 +261,7 @@ def main(training_path, validate_paths, folds):
 
 if __name__ == '__main__':
 
-    # QM9 test
-    train_path = 'qm9.db'
-
+    fold = 4
     folder_path = './Databases'
     val_paths = []
     for item in os.listdir(folder_path):
@@ -273,25 +269,28 @@ if __name__ == '__main__':
         item_path = item_path.replace('\\', '/')
         val_paths.append(item_path)
 
-    val_loss_dic = main(train_path, val_paths, 4)
-    plot_dictionary_data(val_loss_dic, './Plots/T_qm9_V_all')
+    # UNDER 17 TESTS
+    train_path = 'under_17_atom.db'
 
-    # UNDER 18 test
+    test_name = 'Test1_under17_1'
+    val_loss_dic = main(train_path, val_paths, fold)
+    plot_dictionary_data(val_loss_dic, ''
+                                       './Plots/' + test_name)
+
+    test_name = 'Test1_under17_2'
+    val_loss_dic = main(train_path, val_paths, fold)
+    plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
+
+    # UNDER 18 TESTS
     train_path = 'under_18_atom.db'
 
-    folder_path = './Databases'
-    val_paths = []
-    for item in os.listdir(folder_path):
-        item_path = os.path.join(folder_path, item)
-        item_path = item_path.replace('\\', '/')
-        val_paths.append(item_path)
+    test_name = 'Test1_under18_1'
+    val_loss_dic = main(train_path, val_paths, fold)
+    plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
 
-
-    val_loss_dic = main(train_path, val_paths, 4)
-    plot_dictionary_data(val_loss_dic, './Plots/T_und18_V_all_1')
-    val_loss_dic = main(train_path, val_paths, 4)
-    plot_dictionary_data(val_loss_dic, './Plots/T_und18_V_all_2')
-
+    test_name = 'Test1_under18_2'
+    val_loss_dic = main(train_path, val_paths, fold)
+    plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
 
 
 
