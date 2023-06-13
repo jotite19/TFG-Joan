@@ -262,33 +262,21 @@ def main(training_path, validate_paths, folds):
 if __name__ == '__main__':
 
     fold = 4
-    folder_path = './Databases'
+    folder_path = './Databases/Elements'
     val_paths = []
     for item in os.listdir(folder_path):
         item_path = os.path.join(folder_path, item)
         item_path = item_path.replace('\\', '/')
         val_paths.append(item_path)
 
-    # UNDER 17 TESTS
-    train_path = 'under_17_atom.db'
+    # Elements TESTS
+    train_path = 'qm9.db'
 
-    test_name = 'Test1_under17_1'
-    val_loss_dic = main(train_path, val_paths, fold)
-    plot_dictionary_data(val_loss_dic, ''
-                                       './Plots/' + test_name)
-
-    test_name = 'Test1_under17_2'
+    test_name = 'qm9_elements_1'
     val_loss_dic = main(train_path, val_paths, fold)
     plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
 
-    # UNDER 18 TESTS
-    train_path = 'under_18_atom.db'
-
-    test_name = 'Test1_under18_1'
-    val_loss_dic = main(train_path, val_paths, fold)
-    plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
-
-    test_name = 'Test1_under18_2'
+    test_name = 'qm9_elements_2'
     val_loss_dic = main(train_path, val_paths, fold)
     plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
 
