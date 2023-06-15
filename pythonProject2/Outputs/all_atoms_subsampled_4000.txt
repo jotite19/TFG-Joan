@@ -1,0 +1,16 @@
+Iteration0: : {'val_loss': 16.113388061523438, 'val_energy_U0_MAE': 3.998385190963745, 'val_energy_U0_MSE': 16.113388061523438}
+Iteration0: : {'val_loss': 17.855850219726562, 'val_energy_U0_MAE': 4.2154107093811035, 'val_energy_U0_MSE': 17.855850219726562}
+Iteration0: : {'val_loss': 15.268200874328613, 'val_energy_U0_MAE': 3.8975613117218018, 'val_energy_U0_MSE': 15.268200874328613}
+Iteration0: : {'val_loss': 12.27490234375, 'val_energy_U0_MAE': 3.4923641681671143, 'val_energy_U0_MSE': 12.27490234375}
+Iteration0: : {'val_loss': 8.588162422180176, 'val_energy_U0_MAE': 2.9154388904571533, 'val_energy_U0_MSE': 8.588162422180176}
+Iteration0: : {'val_loss': 5.3254523277282715, 'val_energy_U0_MAE': 2.2862155437469482, 'val_energy_U0_MSE': 5.3254523277282715}
+Iteration0: : {'val_loss': 2.50634765625, 'val_energy_U0_MAE': 1.5527323484420776, 'val_energy_U0_MSE': 2.50634765625}
+Iteration0: : {'val_loss': 0.6380695700645447, 'val_energy_U0_MAE': 0.7433854341506958, 'val_energy_U0_MSE': 0.6380695700645447}
+Iteration0: : {'val_loss': 0.20780175924301147, 'val_energy_U0_MAE': 0.39738234877586365, 'val_energy_U0_MSE': 0.20780175924301147}
+Iteration0: : {'val_loss': 0.7201675176620483, 'val_energy_U0_MAE': 0.822110652923584, 'val_energy_U0_MSE': 0.7201675176620483}
+Iteration0: : {'val_loss': 5.6522746086120605, 'val_energy_U0_MAE': 2.3657443523406982, 'val_energy_U0_MSE': 5.6522746086120605}
+Iteration0: : {'val_loss': 5.337868690490723, 'val_energy_U0_MAE': 2.3022451400756836, 'val_energy_U0_MSE': 5.337868690490723}
+Iteration0: : {'val_loss': 20.857036590576172, 'val_energy_U0_MAE': 4.5619425773620605, 'val_energy_U0_MSE': 20.857036590576172}
+Iteration0: : {'val_loss': 16.580772399902344, 'val_energy_U0_MAE': 4.069802284240723, 'val_energy_U0_MSE': 16.580772399902344}
+Iteration0: : {'val_loss': 51.815818786621094, 'val_energy_U0_MAE': 7.19734001159668, 'val_energy_U0_MSE': 51.815818786621094}
+Iteration0: : {'val_loss': 38.64241027832031, 'val_energy_U0_MAE': 6.215493202209473, 'val_energy_U0_MSE': 38.64241027832031}

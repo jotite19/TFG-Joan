@@ -1,0 +1,5 @@
+Iteration0: : {'val_loss': 0.5078942775726318, 'val_energy_U0_MAE': 0.6337171196937561, 'val_energy_U0_MSE': 0.5078942775726318}
+Iteration0: : {'val_loss': 10.766048431396484, 'val_energy_U0_MAE': 3.2405612468719482, 'val_energy_U0_MSE': 10.766048431396484}
+Iteration0: : {'val_loss': 0.5409724712371826, 'val_energy_U0_MAE': 0.6574596762657166, 'val_energy_U0_MSE': 0.5409724712371826}
+Iteration0: : {'val_loss': 1.3077785968780518, 'val_energy_U0_MAE': 1.0781141519546509, 'val_energy_U0_MSE': 1.3077785968780518}
+Iteration0: : {'val_loss': 0.42291393876075745, 'val_energy_U0_MAE': 0.5712091326713562, 'val_energy_U0_MSE': 0.42291393876075745}
