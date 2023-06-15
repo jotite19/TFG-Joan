@@ -5,6 +5,8 @@ import numpy as np
 import os
 import wandb
 import json
+import seaborn as sns
+import pandas as pd
 
 
 def num_atoms_freq(db):
@@ -31,10 +33,10 @@ def element_freq(db):
     return freq
 
 
-def plot_atoms():
-    db = connect('qm9.db')
+def plot_atoms(path):
+    db = connect(path)
 
-    freq = element_freq(db)
+    freq = num_atoms_freq(db)
 
     elements = list(freq.keys())
     frequencies = list(freq.values())
@@ -64,8 +66,8 @@ def plot_dictionary_data(dictionary, plot_name):
     y = []
     for key, value in dictionary.items():
         # Extract the number from the key
-        # number = int(key.split('/')[2].split('_')[0])
-        number = os.path.splitext(os.path.basename(key))[0]
+        number = int(key.split('/')[2].split('_')[0])
+        # number = os.path.splitext(os.path.basename(key))[0]
         x.append(number)
         y.append(value)
 
@@ -80,6 +82,66 @@ def plot_dictionary_data(dictionary, plot_name):
     plt.tight_layout()  # Improve spacing between elements
     plt.savefig(plot_name)
 
+def plot_heat_map(path):
+    # Connect to the ase.db file
+    db = connect(path)
+
+    # Fetch the data from the database
+    data = db.select()
+
+    # Create a dictionary to store the count of rows for each (element, natoms) combination
+    element_counts = {}
+
+    # Iterate over the rows in the database
+    for row in data:
+        natoms = row.natoms
+        if 10 <= natoms <= 25:
+            elements = [atom for atom in row.formula if atom.isalpha()]
+            for element in elements:
+                key = (element, natoms)
+                if key in element_counts:
+                    element_counts[key] += 1
+                else:
+                    element_counts[key] = 1
+
+    # Create lists to store the x and y values
+    x_values = []
+    y_values = []
+    presence_values = []
+
+    # Iterate over the (element, natoms) combinations
+    for (element, natoms), count in element_counts.items():
+        x_values.append(natoms)
+        y_values.append(element)
+        presence_values.append(count)
+
+    # Create a DataFrame from the x, y, and presence values
+    df = pd.DataFrame({'x': x_values, 'y': y_values, 'presence': presence_values})
+
+    # Filter the DataFrame to include only the desired elements
+    desired_elements = ['C']
+    df_filtered = df[df['y'].isin(desired_elements)]
+
+    # Create a pivot table to prepare data for heatmap
+    pivot_table = df_filtered.pivot_table(index='y', columns='x', values='presence', fill_value=0)
+
+    # Normalize the values in each row of the pivot table to add up to 1
+    row_normalized_table = pivot_table.div(pivot_table.sum(axis=1), axis=0)
+
+    # Create a heatmap using seaborn
+    plt.figure(figsize=(10, 2))
+    sns.heatmap(row_normalized_table, annot=True, cmap='YlGnBu')
+
+    # Set the labels for x and y axes
+    plt.xlabel('Number of Atoms')
+    plt.ylabel('Elements')
+
+    # Set the title of the heatmap
+    plt.title('Heatmap of Atoms and Elements')
+
+    # Display the heatmap
+    plt.show()
+
 
 if __name__ == '__main__':
 
@@ -87,5 +149,9 @@ if __name__ == '__main__':
     # num_atoms_database()
     # plot_atoms()
     # print(test2('qm9.db'))
-    new_db = connect('plus_16_atom.db')
+    # new_db = connect('plus_16_atom.db')
     # print(len(new_db))
+
+    # plot_atoms('under_sample.db')
+    plot_heat_map('qm9.db')
+    # plot_heat_map('under_sample.db')

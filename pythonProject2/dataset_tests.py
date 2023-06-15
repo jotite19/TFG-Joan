@@ -9,10 +9,8 @@ import torchmetrics
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 import wandb
-from pytorch_lightning import Trainer
-import optuna
 
-from databaseTest import create_new_db, plot_dictionary_data
+from database_representations import plot_dictionary_data
 
 
 def clean_files():
@@ -251,6 +249,12 @@ def main(training_path, validate_paths, folds):
 
             val_results[path] += output[0]['val_loss']
 
+            run_path = "./Outputs/" + test_name + ".txt"
+            text = "Iteration" + str(i) + ": "
+
+            with open(run_path, "a") as file:
+                file.write(text + ": " + str(output[0]) + "\n")
+
             clean_files()
 
     for key in val_results:
@@ -261,24 +265,22 @@ def main(training_path, validate_paths, folds):
 
 if __name__ == '__main__':
 
-    fold = 4
-    folder_path = './Databases/Elements'
+    fold = 1
+    folder_path = './Databases/nAtoms'
     val_paths = []
     for item in os.listdir(folder_path):
         item_path = os.path.join(folder_path, item)
         item_path = item_path.replace('\\', '/')
         val_paths.append(item_path)
 
-    # Elements TESTS
-    train_path = 'qm9.db'
-
-    test_name = 'qm9_elements_1'
+    train_path = '6000_subsample.db'
+    test_name = 'all_atoms_subsampled_6000'
     val_loss_dic = main(train_path, val_paths, fold)
     plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
 
-    test_name = 'qm9_elements_2'
-    val_loss_dic = main(train_path, val_paths, fold)
-    plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
+
+
+
 
 
 

@@ -15,18 +15,41 @@ def num_atoms_database():
         create_new_db('qm9.db', path, 0, cc)
 
 
-def create_new_db(original_path, new_path, start, condition):
+def create_new_db(original_path, new_path, condition):
     original_db = connect(original_path)
     new_db = connect(new_path)
     rows = original_db.select()
     total = 0
     for row in rows:
         if condition(row):
-            if total > start:
-                new_db.write(row)
+            new_db.write(row)
         total += 1
         print(total)
 
+def create_new_sub(original_path, new_path, condition):
+    original_db = connect(original_path)
+    new_db = connect(new_path)
+    rows = original_db.select()
+    total = 0
+    for row in rows:
+        if condition(row):
+            break
+        new_db.write(row)
+        total += 1
+        print(total)
+
+
+def subsampling_database(cuttoff, path):
+    def subsampling_cond(row):
+        return cuttoff < row.id
+
+    new_db = path
+    folder_path = './Databases/nAtoms'
+
+    for item in os.listdir(folder_path):
+        item_path = os.path.join(folder_path, item)
+        item_path = item_path.replace('\\', '/')
+        create_new_sub(item_path, new_db, subsampling_cond)
 
 def custom_condition(row):
     return 'N' in row.formula
@@ -38,5 +61,7 @@ if __name__ == '__main__':
     # num_atoms_database()
     # plot_atoms()
     # print(test2('qm9.db'))
-    new_db = connect('plus_16_atom.db')
+    # new_db = connect('plus_16_atom.db')
     # print(len(new_db))
+
+    subsampling_database(6000, '6000_subsample.db')
