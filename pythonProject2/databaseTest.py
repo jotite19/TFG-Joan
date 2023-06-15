@@ -4,7 +4,9 @@ import schnetpack as spk
 import numpy as np
 import os
 import wandb
-
+import json
+import pandas as pd
+import seaborn as sns
 
 def test1(path):
     db = connect(path)
@@ -30,121 +32,67 @@ def test2(path):
     return sum_rows
 
 
-def num_atoms_freq(db):
-    freq = {}
-    for row in db.select():
-        num_atoms = row.natoms
-        if num_atoms in freq:
-            freq[num_atoms] += 1
-        else:
-            freq[num_atoms] = 1
-    return freq
-
-
-def element_freq(db):
-    freq = {}
-    for row in db.select():
-        formula = row.formula
-        for element in formula:
-            if element.isalpha():
-                if element in freq:
-                    freq[element] += 1
-                else:
-                    freq[element] = 1
-    return freq
-
-
-def plot_atoms():
-    db = connect('qm9.db')
-
-    freq = element_freq(db)
-
-    elements = list(freq.keys())
-    frequencies = list(freq.values())
-
-    db_len = len(db)
-    normalized_frequencies = [element / db_len for element in frequencies]
-
-    sorted_indices = np.argsort(normalized_frequencies)[::-1]
-    elements = [elements[i] for i in sorted_indices]
-    normalized_frequencies = [normalized_frequencies[i] for i in sorted_indices]
-
-    plt.figure(figsize=(8, 6))
-    plt.bar(elements, normalized_frequencies, color='#e58888')
-    plt.xlabel('nAtoms', fontsize=12)
-    plt.ylabel('Frequencia', fontsize=12)
-    plt.title('Frequencia de molecules per nAtoms', fontsize=14)
-    plt.xticks(rotation=45, ha='right', fontsize=10)
-    plt.yticks(fontsize=10)
-    plt.grid(axis='y', linestyle='--', alpha=0.5)
-    plt.tight_layout()
-    plt.savefig('plot_atoms.png')
-    plt.show()
-
-
-def plot_dictionary_data(dictionary, plot_name):
-    x = []
-    y = []
-    for key, value in dictionary.items():
-        # Extract the number from the key
-        number = int(key.split('/')[2].split('_')[0])
-        x.append(number)
-        y.append(value)
-
-    plt.figure(figsize=(8, 6))  # Adjust the figure size
-    plt.plot(x, y, marker='o', linestyle='-', color='b', linewidth=2)  # Customize line style and color
-    plt.xlabel('nAtoms', fontsize=12)  # Set x-axis label and font size
-    plt.ylabel('Val_loss', fontsize=12)  # Set y-axis label and font size
-    plt.title('Loss en validació en funció de número de atoms', fontsize=14)  # Set plot title and font size
-    plt.xticks(fontsize=10)  # Adjust x-axis tick font size
-    plt.yticks(fontsize=10)  # Adjust y-axis tick font size
-    plt.grid(True)  # Add grid lines
-    plt.tight_layout()  # Improve spacing between elements
-    plt.savefig(plot_name)
-
-
-def num_atoms_database():
-    for i in range(25, 26):
-        def custom_condition(row):
-            return row.natoms == i
-        path = f'./Databases/{str(i)}_atoms.db'
-
-        create_new_db('qm9.db', path, 0, custom_condition)
-
-
-def create_new_db(original_path, new_path, start, condition):
-    original_db = connect(original_path)
-    new_db = connect(new_path)
-    rows = original_db.select()
-    total = 0
-    for row in rows:
-        if condition(row):
-            if total > start:
-                new_db.write(row)
-        total += 1
-        print(total)
-
-
-def custom_condition(row):
-    return row.natoms <= 17
-
-
 if __name__ == '__main__':
 
     # ase db qm9.db -w
     # num_atoms_database()
     # plot_atoms()
-    # print(test2('qm9.db'))
-    # new_db = connect('plus_16_atom.db')
-    # print(len(new_db))
 
-    original_path = 'qm9.db'
-    new_path = 'test.db'
-    start = 0
+    # Connect to the ase.db file
+    db = connect('qm9.db')
 
-    new_db = connect(new_path)
-    rows = new_db.select()
-    for row in rows:
-        print(row.natoms)
-    
-    create_new_db(original_path, new_path, start, custom_condition)
+    # Fetch the data from the database
+    data = db.select()
+
+    # Create a dictionary to store the count of rows for each (element, natoms) combination
+    element_counts = {}
+
+    # Iterate over the rows in the database
+    for row in data:
+        natoms = row.natoms
+        if 10 <= natoms <= 25:
+            elements = [atom for atom in row.formula if atom.isalpha()]
+            for element in elements:
+                key = (element, natoms)
+                if key in element_counts:
+                    element_counts[key] += 1
+                else:
+                    element_counts[key] = 1
+
+    # Create lists to store the x and y values
+    x_values = []
+    y_values = []
+    presence_values = []
+
+    # Iterate over the (element, natoms) combinations
+    for (element, natoms), count in element_counts.items():
+        x_values.append(natoms)
+        y_values.append(element)
+        presence_values.append(count)
+
+    # Create a DataFrame from the x, y, and presence values
+    df = pd.DataFrame({'x': x_values, 'y': y_values, 'presence': presence_values})
+
+    # Filter the DataFrame to include only the desired elements
+    desired_elements = ['C', 'F', 'N', 'O']
+    df_filtered = df[df['y'].isin(desired_elements)]
+
+    # Create a pivot table to prepare data for heatmap
+    pivot_table = df_filtered.pivot_table(index='y', columns='x', values='presence', fill_value=0)
+
+    # Normalize the values in each row of the pivot table to add up to 1
+    row_normalized_table = pivot_table.div(pivot_table.sum(axis=1), axis=0)
+
+    # Create a heatmap using seaborn
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(row_normalized_table, annot=True, cmap='YlGnBu')
+
+    # Set the labels for x and y axes
+    plt.xlabel('Number of Atoms')
+    plt.ylabel('Elements')
+
+    # Set the title of the heatmap
+    plt.title('Heatmap of Atoms and Elements')
+
+    # Display the heatmap
+    plt.show()
