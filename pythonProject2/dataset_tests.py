@@ -129,73 +129,6 @@ def validate_model(trainer, task, data):
     return trainer.validate(task, datamodule=data)
 
 
-def main_sweep():
-    # Define hyperparameters to search over
-    run = wandb.init()
-
-    batch_size = wandb.config.batch_size
-    epochs = wandb.config.epochs
-    lr = wandb.config.lr
-
-    trainingCutoff = wandb.config.trainingCutoff
-    dataCutoff = wandb.config.dataCutoff
-    n_atom_basis = wandb.config.n_atom_basis
-    m_epochs = epochs
-
-    # DATA FOR TRAINING:
-    data_split = [batch_size, 11000, 1000]  # B_size, train, val
-    qm9data = get_data(data_split, dataCutoff, './qm9.db')
-    qm9data.prepare_data()
-    qm9data.setup()
-
-    trainer, task = model_startup(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, True)
-
-    train_model(trainer, task, qm9data)
-
-    # CLEANING DATA:
-    os.remove('/pythonProject2/split.npz')
-    os.remove('/pythonProject2/splitting.lock')
-
-    # DATA FOR VALIDATION:
-    data_split = [10, 1000, 1000]
-    qm9data = get_data(data_split, dataCutoff, './filtered.db')
-    qm9data.setup()
-
-    trainer, task = model_startup(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, False)
-
-    print(validate_model(trainer, task, qm9data))
-
-    # CLEANING DATA:
-    os.remove('/pythonProject2/split.npz')
-    os.remove('/pythonProject2/splitting.lock')
-
-
-def sweep_func():
-    sweep_configuration = {
-        'method': 'random',
-        'name': 'Plus16',
-        'metric': {
-
-            'goal': 'minimize',
-            'name': 'val_loss'
-        },
-        'parameters': {
-            'batch_size': {'values': [10]},
-            'epochs': {'values': [5]},
-            'lr': {'values': [0.001]},
-            'trainingCutoff': {'values': [5]},
-            'dataCutoff': {'values': [5]},
-            'n_atom_basis': {'values': [30]}
-        }
-    }
-
-    sweep_id = wandb.sweep(
-        sweep=sweep_configuration,
-        project='sweep'
-    )
-    wandb.agent(sweep_id, function=main, count=10)
-
-
 def main(training_path, validate_paths, folds):
 
     original_db = connect('qm9.db')
@@ -205,7 +138,7 @@ def main(training_path, validate_paths, folds):
     # CLEANING DATA SPLIT:
     clean_files()
 
-    m_epochs = 25
+    m_epochs = 20
     lr = 0.001
     training_cutoff = 5
     data_cutoff = 5
@@ -273,10 +206,14 @@ if __name__ == '__main__':
         item_path = item_path.replace('\\', '/')
         val_paths.append(item_path)
 
-    train_path = '6000_subsample.db'
-    test_name = 'all_atoms_subsampled_6000'
+    train_path = 'qm9.db'
+    test_name = 'test_loss'
     val_loss_dic = main(train_path, val_paths, fold)
-    plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
+    # plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
+
+
+
+
 
 
 

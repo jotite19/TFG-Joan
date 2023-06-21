@@ -7,12 +7,12 @@ import wandb
 import json
 
 def num_atoms_database():
-    for i in range(25, 26):
+    for i in range(24, 30):
         def cc(row):
             return row.natoms == i
         path = f'./Databases/{str(i)}_atoms.db'
 
-        create_new_db('qm9.db', path, 0, cc)
+        create_new_db('qm9.db', path, cc)
 
 
 def create_new_db(original_path, new_path, condition):
@@ -51,9 +51,6 @@ def subsampling_database(cuttoff, path):
         item_path = item_path.replace('\\', '/')
         create_new_sub(item_path, new_db, subsampling_cond)
 
-def custom_condition(row):
-    return 'N' in row.formula
-
 
 if __name__ == '__main__':
 
@@ -64,4 +61,14 @@ if __name__ == '__main__':
     # new_db = connect('plus_16_atom.db')
     # print(len(new_db))
 
-    subsampling_database(6000, '6000_subsample.db')
+    original_db = connect('qm9.db')
+    new_db = connect('over_14_under_25.db')
+    rows = original_db.select()
+    total = 0
+    for row in rows:
+        if row.natoms > 14 and row.natoms < 26:
+            new_db.write(row)
+        total += 1
+        print(total)
+
+

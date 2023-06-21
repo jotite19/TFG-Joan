@@ -33,6 +33,24 @@ def element_freq(db):
     return freq
 
 
+def freq_dict(path):
+    db = connect(path)
+
+    freq = num_atoms_freq(db)
+
+    my_dict = freq
+
+    total_sum = sum(my_dict.values())
+
+    # Step 2, 3, and 4: Divide each value by the sum and create a new dictionary
+    for key, value in my_dict.items():
+        my_dict[key] = (value / total_sum) * 100
+
+    sorted_dict = dict(sorted(my_dict.items()))
+
+    print(sorted_dict)
+
+
 def plot_atoms(path):
     db = connect(path)
 
@@ -66,11 +84,8 @@ def plot_dictionary_data(dictionary, plot_name):
     y = []
     for key, value in dictionary.items():
         # Extract the number from the key
-        number = int(key.split('/')[2].split('_')[0])
-        # number = os.path.splitext(os.path.basename(key))[0]
-        x.append(number)
         y.append(value)
-
+    x = [x for x in range(13, 24)]  # Array for natoms
     plt.figure(figsize=(8, 6))  # Adjust the figure size
     plt.plot(x, y, marker='o', linestyle='-', color='b', linewidth=2)  # Customize line style and color
     plt.xlabel('Elements', fontsize=12)  # Set x-axis label and font size
@@ -152,6 +167,11 @@ if __name__ == '__main__':
     # new_db = connect('plus_16_atom.db')
     # print(len(new_db))
 
-    # plot_atoms('under_sample.db')
-    plot_heat_map('qm9.db')
+    #plot_atoms('6000_subsample.db')
+    # plot_heat_map('qm9.db')
     # plot_heat_map('under_sample.db')
+
+    #freq_dict('qm9.db')
+
+    e = 3 % 353
+    print(e)
