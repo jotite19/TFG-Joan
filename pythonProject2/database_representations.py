@@ -161,17 +161,8 @@ def plot_heat_map(path):
 if __name__ == '__main__':
 
     # ase db qm9.db -w
-    # num_atoms_database()
-    # plot_atoms()
+    plot_atoms()
     # print(test2('qm9.db'))
     # new_db = connect('plus_16_atom.db')
     # print(len(new_db))
 
-    #plot_atoms('6000_subsample.db')
-    # plot_heat_map('qm9.db')
-    # plot_heat_map('under_sample.db')
-
-    #freq_dict('qm9.db')
-
-    e = 3 % 353
-    print(e)

@@ -138,7 +138,7 @@ def main(training_path, validate_paths, folds):
     # CLEANING DATA SPLIT:
     clean_files()
 
-    m_epochs = 20
+    m_epochs = 25
     lr = 0.001
     training_cutoff = 5
     data_cutoff = 5
@@ -183,7 +183,8 @@ def main(training_path, validate_paths, folds):
             val_results[path] += output[0]['val_loss']
 
             run_path = "./Outputs/" + test_name + ".txt"
-            text = "Iteration" + str(i) + ": "
+            # text = "Iteration" + str(i) + ": "
+            text = "Iteration5: "
 
             with open(run_path, "a") as file:
                 file.write(text + ": " + str(output[0]) + "\n")
@@ -206,8 +207,8 @@ if __name__ == '__main__':
         item_path = item_path.replace('\\', '/')
         val_paths.append(item_path)
 
-    train_path = 'qm9.db'
-    test_name = 'test_loss'
+    train_path = 'over_12_under_24.db'
+    test_name = 'loss_factor_v2'
     val_loss_dic = main(train_path, val_paths, fold)
     # plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
 
