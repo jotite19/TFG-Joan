@@ -1,0 +1,16 @@
+Iteration0: : {'val_loss': 19.749080657958984, 'val_energy_U0_MAE': 4.4131760597229, 'val_energy_U0_MSE': 19.74907875061035}
+Iteration0: : {'val_loss': 16.264297485351562, 'val_energy_U0_MAE': 4.003190994262695, 'val_energy_U0_MSE': 16.264297485351562}
+Iteration0: : {'val_loss': 16.82208824157715, 'val_energy_U0_MAE': 4.077136993408203, 'val_energy_U0_MSE': 16.82208824157715}
+Iteration0: : {'val_loss': 12.90922737121582, 'val_energy_U0_MAE': 3.5707054138183594, 'val_energy_U0_MSE': 12.90922737121582}
+Iteration0: : {'val_loss': 8.929844856262207, 'val_energy_U0_MAE': 2.9650328159332275, 'val_energy_U0_MSE': 8.929844856262207}
+Iteration0: : {'val_loss': 5.11720609664917, 'val_energy_U0_MAE': 2.235205888748169, 'val_energy_U0_MSE': 5.11720609664917}
+Iteration0: : {'val_loss': 2.309504270553589, 'val_energy_U0_MAE': 1.484814167022705, 'val_energy_U0_MSE': 2.309504270553589}
+Iteration0: : {'val_loss': 0.46100905537605286, 'val_energy_U0_MAE': 0.6189243197441101, 'val_energy_U0_MSE': 0.46100905537605286}
+Iteration0: : {'val_loss': 0.328855037689209, 'val_energy_U0_MAE': 0.5294049382209778, 'val_energy_U0_MSE': 0.328855037689209}
+Iteration0: : {'val_loss': 1.0829339027404785, 'val_energy_U0_MAE': 1.0201412439346313, 'val_energy_U0_MSE': 1.0829339027404785}
+Iteration0: : {'val_loss': 6.667357921600342, 'val_energy_U0_MAE': 2.573315143585205, 'val_energy_U0_MSE': 6.667357921600342}
+Iteration0: : {'val_loss': 6.772214889526367, 'val_energy_U0_MAE': 2.5964670181274414, 'val_energy_U0_MSE': 6.772214889526367}
+Iteration0: : {'val_loss': 23.491262435913086, 'val_energy_U0_MAE': 4.84371280670166, 'val_energy_U0_MSE': 23.491262435913086}
+Iteration0: : {'val_loss': 19.161617279052734, 'val_energy_U0_MAE': 4.375999927520752, 'val_energy_U0_MSE': 19.161617279052734}
+Iteration0: : {'val_loss': 51.77996063232422, 'val_energy_U0_MAE': 7.195197582244873, 'val_energy_U0_MSE': 51.77996063232422}
+Iteration0: : {'val_loss': 40.57335662841797, 'val_energy_U0_MAE': 6.369241714477539, 'val_energy_U0_MSE': 40.57335662841797}

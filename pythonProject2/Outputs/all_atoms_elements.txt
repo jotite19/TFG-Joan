@@ -1,14 +1,6 @@
-Iteration0: : {'val_loss': 146.63858032226562, 'val_energy_U0_MAE': 10.890975952148438, 'val_energy_U0_MSE': 146.63858032226562}
-Iteration0: : {'val_loss': 99.17659759521484, 'val_energy_U0_MAE': 8.513187408447266, 'val_energy_U0_MSE': 99.17659759521484}
-Iteration0: : {'val_loss': 146.4417724609375, 'val_energy_U0_MAE': 10.881726264953613, 'val_energy_U0_MSE': 146.4417724609375}
-Iteration0: : {'val_loss': 124.40254211425781, 'val_energy_U0_MAE': 9.95974349975586, 'val_energy_U0_MSE': 124.40254211425781}
-Iteration0: : {'val_loss': 142.60296630859375, 'val_energy_U0_MAE': 10.729698181152344, 'val_energy_U0_MSE': 142.60296630859375}
+Iteration0: : {'val_loss': 0.04480433464050293, 'val_energy_U0_MAE': 0.15046057105064392, 'val_energy_U0_MSE': 0.04480433464050293}
 Iteration0: : {'val_loss': 0.04406799376010895, 'val_energy_U0_MAE': 0.14905992150306702, 'val_energy_U0_MSE': 0.04406799376010895}
-Iteration0: : {'val_loss': 14.116813659667969, 'val_energy_U0_MAE': 3.709561824798584, 'val_energy_U0_MSE': 14.116813659667969}
 Iteration0: : {'val_loss': 0.053009793162345886, 'val_energy_U0_MAE': 0.17076413333415985, 'val_energy_U0_MSE': 0.053009793162345886}
 Iteration0: : {'val_loss': 0.42229148745536804, 'val_energy_U0_MAE': 0.6098398566246033, 'val_energy_U0_MSE': 0.42229148745536804}
-Iteration0: : {'val_loss': 0.03563986346125603, 'val_energy_U0_MAE': 0.13095004856586456, 'val_energy_U0_MSE': 0.03563986346125603}
-Iteration1: : {'val_loss': 0.04480433464050293, 'val_energy_U0_MAE': 0.15046057105064392, 'val_energy_U0_MSE': 0.04480433464050293}
-Iteration1: : {'val_loss': 12.316890716552734, 'val_energy_U0_MAE': 3.4639904499053955, 'val_energy_U0_MSE': 12.316890716552734}
-Iteration1: : {'val_loss': 0.04336876422166824, 'val_energy_U0_MAE': 0.1470145285129547, 'val_energy_U0_MSE': 0.04336876422166824}
-Iteration1: : {'val_loss': 0.41734614968299866, 'val_energy_U0_MAE': 0.6061239242553711, 'val_energy_U0_MSE': 0.41734614968299866}
+Iteration0: : {'val_loss': 12.316890716552734, 'val_energy_U0_MAE': 3.4639904499053955, 'val_energy_U0_MSE': 12.316890716552734}
+

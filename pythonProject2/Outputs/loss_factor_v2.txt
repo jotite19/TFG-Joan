@@ -1,0 +1,11 @@
+Iteration1: : {'min_val_loss': 7.778270244598389, 'max_val_loss': 19.38384437561035, 'val_loss': 12.449344635009766, 'val_energy_U0_MAE': 3.5205025672912598, 'val_energy_U0_MSE': 12.449344635009766}
+Iteration1: : {'min_val_loss': 4.83254337310791, 'max_val_loss': 16.606138229370117, 'val_loss': 8.09315013885498, 'val_energy_U0_MAE': 2.8337934017181396, 'val_energy_U0_MSE': 8.09315013885498}
+Iteration1: : {'min_val_loss': 2.4542009830474854, 'max_val_loss': 12.965906143188477, 'val_loss': 4.947098731994629, 'val_energy_U0_MAE': 2.2081615924835205, 'val_energy_U0_MSE': 4.947098731994629}
+Iteration1: : {'min_val_loss': 0.6377456784248352, 'max_val_loss': 7.6939778327941895, 'val_loss': 2.0948731899261475, 'val_energy_U0_MAE': 1.423695683479309, 'val_energy_U0_MSE': 2.0948731899261475}
+Iteration1: : {'min_val_loss': 0.010596470907330513, 'max_val_loss': 3.7140326499938965, 'val_loss': 0.47376611828804016, 'val_energy_U0_MAE': 0.6449000239372253, 'val_energy_U0_MSE': 0.47376611828804016}
+Iteration1: : {'min_val_loss': 0.0009793373756110668, 'max_val_loss': 1.4676311016082764, 'val_loss': 0.25724902749061584, 'val_energy_U0_MAE': 0.46698614954948425, 'val_energy_U0_MSE': 0.25724902749061584}
+Iteration1: : {'min_val_loss': 0.05687839165329933, 'max_val_loss': 2.3464536666870117, 'val_loss': 0.9934977889060974, 'val_energy_U0_MAE': 0.9780391454696655, 'val_energy_U0_MSE': 0.9934977889060974}
+Iteration1: : {'min_val_loss': 2.34653639793396, 'max_val_loss': 9.190207481384277, 'val_loss': 6.4392595291137695, 'val_energy_U0_MAE': 2.52984881401062, 'val_energy_U0_MSE': 6.4392595291137695}
+Iteration1: : {'min_val_loss': 3.056746006011963, 'max_val_loss': 8.378045082092285, 'val_loss': 6.067574501037598, 'val_energy_U0_MAE': 2.4577701091766357, 'val_energy_U0_MSE': 6.067574501037598}
+Iteration1: : {'min_val_loss': 16.34195327758789, 'max_val_loss': 26.531185150146484, 'val_loss': 22.618253707885742, 'val_energy_U0_MAE': 4.753283500671387, 'val_energy_U0_MSE': 22.618253707885742}
+Iteration1: : {'min_val_loss': 14.786547660827637, 'max_val_loss': 20.88524055480957, 'val_loss': 17.9473934173584, 'val_energy_U0_MAE': 4.234854698181152, 'val_energy_U0_MSE': 17.9473934173584}

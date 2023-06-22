@@ -1,0 +1,16 @@
+Iteration0: : {'val_loss': 13.301657676696777, 'val_energy_U0_MAE': 3.6063313484191895, 'val_energy_U0_MSE': 13.301657676696777}
+Iteration0: : {'val_loss': 18.27138328552246, 'val_energy_U0_MAE': 4.248005390167236, 'val_energy_U0_MSE': 18.27138328552246}
+Iteration0: : {'val_loss': 17.803659439086914, 'val_energy_U0_MAE': 4.196523666381836, 'val_energy_U0_MSE': 17.803659439086914}
+Iteration0: : {'val_loss': 12.487117767333984, 'val_energy_U0_MAE': 3.5122714042663574, 'val_energy_U0_MSE': 12.487117767333984}
+Iteration0: : {'val_loss': 8.918763160705566, 'val_energy_U0_MAE': 2.964311361312866, 'val_energy_U0_MSE': 8.918763160705566}
+Iteration0: : {'val_loss': 5.447600841522217, 'val_energy_U0_MAE': 2.3073413372039795, 'val_energy_U0_MSE': 5.447600841522217}
+Iteration0: : {'val_loss': 2.477311372756958, 'val_energy_U0_MAE': 1.5381083488464355, 'val_energy_U0_MSE': 2.477311372756958}
+Iteration0: : {'val_loss': 0.7205805778503418, 'val_energy_U0_MAE': 0.7965400815010071, 'val_energy_U0_MSE': 0.7205805778503418}
+Iteration0: : {'val_loss': 0.1856616884469986, 'val_energy_U0_MAE': 0.36964383721351624, 'val_energy_U0_MSE': 0.1856616884469986}
+Iteration0: : {'val_loss': 0.7502704858779907, 'val_energy_U0_MAE': 0.8424849510192871, 'val_energy_U0_MSE': 0.7502704858779907}
+Iteration0: : {'val_loss': 5.6658935546875, 'val_energy_U0_MAE': 2.368830680847168, 'val_energy_U0_MSE': 5.6658935546875}
+Iteration0: : {'val_loss': 5.6903276443481445, 'val_energy_U0_MAE': 2.378061532974243, 'val_energy_U0_MSE': 5.6903276443481445}
+Iteration0: : {'val_loss': 21.810346603393555, 'val_energy_U0_MAE': 4.666730880737305, 'val_energy_U0_MSE': 21.810346603393555}
+Iteration0: : {'val_loss': 16.897438049316406, 'val_energy_U0_MAE': 4.108879566192627, 'val_energy_U0_MSE': 16.897438049316406}
+Iteration0: : {'val_loss': 50.850807189941406, 'val_energy_U0_MAE': 7.130060195922852, 'val_energy_U0_MSE': 50.850807189941406}
+Iteration0: : {'val_loss': 39.038734436035156, 'val_energy_U0_MAE': 6.247541427612305, 'val_energy_U0_MSE': 39.038734436035156}

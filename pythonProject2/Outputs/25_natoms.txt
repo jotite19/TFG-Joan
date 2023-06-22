@@ -1,0 +1,19 @@
+Iteration0: : {'val_loss': 7.42074728012085, 'val_energy_U0_MAE': 2.2089078426361084, 'val_energy_U0_MSE': 7.420746326446533}
+Iteration0: : {'val_loss': 7.830978870391846, 'val_energy_U0_MAE': 2.256518602371216, 'val_energy_U0_MSE': 7.830978870391846}
+Iteration0: : {'val_loss': 7.504315376281738, 'val_energy_U0_MAE': 2.176165819168091, 'val_energy_U0_MSE': 7.504315376281738}
+Iteration0: : {'val_loss': 5.962080478668213, 'val_energy_U0_MAE': 1.955140233039856, 'val_energy_U0_MSE': 5.962080478668213}
+Iteration0: : {'val_loss': 4.707864761352539, 'val_energy_U0_MAE': 1.734806776046753, 'val_energy_U0_MSE': 4.707864761352539}
+Iteration0: : {'val_loss': 3.947524309158325, 'val_energy_U0_MAE': 1.5877364873886108, 'val_energy_U0_MSE': 3.947524309158325}
+Iteration0: : {'val_loss': 3.4111194610595703, 'val_energy_U0_MAE': 1.4717061519622803, 'val_energy_U0_MSE': 3.4111194610595703}
+Iteration0: : {'val_loss': 3.1200311183929443, 'val_energy_U0_MAE': 1.4044638872146606, 'val_energy_U0_MSE': 3.1200311183929443}
+Iteration0: : {'val_loss': 2.397275924682617, 'val_energy_U0_MAE': 1.2350624799728394, 'val_energy_U0_MSE': 2.397275924682617}
+Iteration0: : {'val_loss': 2.0781540870666504, 'val_energy_U0_MAE': 1.130523681640625, 'val_energy_U0_MSE': 2.0781540870666504}
+Iteration0: : {'val_loss': 1.8751332759857178, 'val_energy_U0_MAE': 1.1083489656448364, 'val_energy_U0_MSE': 1.8751332759857178}
+Iteration0: : {'val_loss': 1.3961037397384644, 'val_energy_U0_MAE': 0.9220893383026123, 'val_energy_U0_MSE': 1.3961037397384644}
+Iteration0: : {'val_loss': 1.6437195539474487, 'val_energy_U0_MAE': 1.0350412130355835, 'val_energy_U0_MSE': 1.6437195539474487}
+Iteration0: : {'val_loss': 0.8613601922988892, 'val_energy_U0_MAE': 0.7482670545578003, 'val_energy_U0_MSE': 0.8613601922988892}
+Iteration0: : {'val_loss': 1.6694226264953613, 'val_energy_U0_MAE': 1.0098662376403809, 'val_energy_U0_MSE': 1.6694226264953613}
+Iteration0: : {'val_loss': 0.5381699204444885, 'val_energy_U0_MAE': 0.5906615257263184, 'val_energy_U0_MSE': 0.5381699204444885}
+Iteration0: : {'val_loss': 0.7087669372558594, 'val_energy_U0_MAE': 0.7553924322128296, 'val_energy_U0_MSE': 0.7087669372558594}
+Iteration0: : {'val_loss': 0.26527276635169983, 'val_energy_U0_MAE': 0.40073132514953613, 'val_energy_U0_MSE': 0.26527276635169983}
+

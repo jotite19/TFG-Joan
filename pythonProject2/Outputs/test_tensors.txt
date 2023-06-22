@@ -1,0 +1,19 @@
+Iteration0: : {'min_val_loss': 0.0017738292226567864, 'max_val_loss': 38.11320114135742, 'val_loss': 6.326499938964844, 'val_energy_U0_MAE': 2.101525068283081, 'val_energy_U0_MSE': 6.3264994621276855}
+Iteration0: : {'min_val_loss': 0.005247710272669792, 'max_val_loss': 41.35721969604492, 'val_loss': 7.7913289070129395, 'val_energy_U0_MAE': 2.308816909790039, 'val_energy_U0_MSE': 7.7913289070129395}
+Iteration0: : {'min_val_loss': 0.002396827097982168, 'max_val_loss': 56.005043029785156, 'val_loss': 8.640718460083008, 'val_energy_U0_MAE': 2.3462066650390625, 'val_energy_U0_MSE': 8.640718460083008}
+Iteration0: : {'min_val_loss': 0.00409738952293992, 'max_val_loss': 65.33651733398438, 'val_loss': 10.155354499816895, 'val_energy_U0_MAE': 2.5602705478668213, 'val_energy_U0_MSE': 10.155354499816895}
+Iteration0: : {'min_val_loss': 0.00877948198467493, 'max_val_loss': 76.02190399169922, 'val_loss': 12.885261535644531, 'val_energy_U0_MAE': 2.969742774963379, 'val_energy_U0_MSE': 12.885261535644531}
+Iteration0: : {'min_val_loss': 0.016583625227212906, 'max_val_loss': 89.20133209228516, 'val_loss': 17.029808044433594, 'val_energy_U0_MAE': 3.527106523513794, 'val_energy_U0_MSE': 17.029808044433594}
+Iteration0: : {'min_val_loss': 0.035995546728372574, 'max_val_loss': 101.62079620361328, 'val_loss': 23.013172149658203, 'val_energy_U0_MAE': 4.232540130615234, 'val_energy_U0_MSE': 23.013172149658203}
+Iteration0: : {'min_val_loss': 0.09489434957504272, 'max_val_loss': 118.6112289428711, 'val_loss': 29.46149253845215, 'val_energy_U0_MAE': 4.857426643371582, 'val_energy_U0_MSE': 29.46149253845215}
+Iteration0: : {'min_val_loss': 0.5202614068984985, 'max_val_loss': 125.7814712524414, 'val_loss': 36.20976638793945, 'val_energy_U0_MAE': 5.587087154388428, 'val_energy_U0_MSE': 36.20976638793945}
+Iteration0: : {'min_val_loss': 1.06451416015625, 'max_val_loss': 141.56727600097656, 'val_loss': 44.042564392089844, 'val_energy_U0_MAE': 6.19203519821167, 'val_energy_U0_MSE': 44.042564392089844}
+Iteration0: : {'min_val_loss': 4.6850409507751465, 'max_val_loss': 135.24330139160156, 'val_loss': 47.73141098022461, 'val_energy_U0_MAE': 6.619611740112305, 'val_energy_U0_MSE': 47.73141098022461}
+Iteration0: : {'min_val_loss': 4.165839672088623, 'max_val_loss': 158.7623748779297, 'val_loss': 58.430458068847656, 'val_energy_U0_MAE': 7.301807880401611, 'val_energy_U0_MSE': 58.430458068847656}
+Iteration0: : {'min_val_loss': 12.559467315673828, 'max_val_loss': 135.2906494140625, 'val_loss': 59.42443084716797, 'val_energy_U0_MAE': 7.502324104309082, 'val_energy_U0_MSE': 59.42443084716797}
+Iteration0: : {'min_val_loss': 9.756657600402832, 'max_val_loss': 148.5306396484375, 'val_loss': 70.74098205566406, 'val_energy_U0_MAE': 8.155599594116211, 'val_energy_U0_MSE': 70.74098205566406}
+Iteration0: : {'min_val_loss': 42.075294494628906, 'max_val_loss': 127.13136291503906, 'val_loss': 71.01364135742188, 'val_energy_U0_MAE': 8.320213317871094, 'val_energy_U0_MSE': 71.01364135742188}
+Iteration0: : {'min_val_loss': 26.885915756225586, 'max_val_loss': 144.8207244873047, 'val_loss': 83.05919647216797, 'val_energy_U0_MAE': 8.930042266845703, 'val_energy_U0_MSE': 83.05919647216797}
+Iteration0: : {'min_val_loss': 74.1292495727539, 'max_val_loss': 88.36748504638672, 'val_loss': 82.57560729980469, 'val_energy_U0_MAE': 9.08217716217041, 'val_energy_U0_MSE': 82.57560729980469}
+Iteration0: : {'min_val_loss': 57.467437744140625, 'max_val_loss': 123.6243667602539, 'val_loss': 88.63652801513672, 'val_energy_U0_MAE': 9.326266288757324, 'val_energy_U0_MSE': 88.63652801513672}
+.
