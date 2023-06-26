@@ -134,7 +134,7 @@ def plot_heat_map(path):
     df = pd.DataFrame({'x': x_values, 'y': y_values, 'presence': presence_values})
 
     # Filter the DataFrame to include only the desired elements
-    desired_elements = ['C']
+    desired_elements = ['C', 'H', 'O', 'N', 'F']
     df_filtered = df[df['y'].isin(desired_elements)]
 
     # Create a pivot table to prepare data for heatmap
@@ -142,10 +142,11 @@ def plot_heat_map(path):
 
     # Normalize the values in each row of the pivot table to add up to 1
     row_normalized_table = pivot_table.div(pivot_table.sum(axis=1), axis=0)
+    percentage_table = row_normalized_table.mul(100)
 
     # Create a heatmap using seaborn
-    plt.figure(figsize=(10, 2))
-    sns.heatmap(row_normalized_table, annot=True, cmap='YlGnBu')
+    plt.figure(figsize=(10, 4))
+    sns.heatmap(percentage_table, annot=True, cmap='YlGnBu')
 
     # Set the labels for x and y axes
     plt.xlabel('Number of Atoms')
@@ -160,8 +161,9 @@ def plot_heat_map(path):
 
 if __name__ == '__main__':
 
+    plot_atoms('./Databases/Subsampling/under_sample.db')
     # ase db qm9.db -w
-    plot_atoms()
+    # plot_atoms()
     # print(test2('qm9.db'))
     # new_db = connect('plus_16_atom.db')
     # print(len(new_db))

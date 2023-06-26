@@ -31,8 +31,8 @@ def plot_dictionary_data(dictionary, plot_name, type_plot):
     plt.figure(figsize=(8, 6))
 
     for it, values in dictionary.items():
-        lab = it
-        plt.plot(elements, values, label=lab, marker='o', linestyle='-', linewidth=1)
+        plt.plot(elements, values, marker='o', linestyle='-', linewidth=1)
+        # plt.plot(elements, values, label=it, marker='o', linestyle='-', linewidth=1)
 
     plt.xlabel('Elements', fontsize=12)
     plt.ylabel('Val_loss', fontsize=12)
@@ -52,7 +52,7 @@ def modify_keys(dictionary):
     modified_dict = {}
     for key, value in dictionary.items():
         if key.startswith('Iteration'):
-            rate_key = 'Rate: ' + key.split('Iteration')[1]
+            rate_key = 'Threshold (k): ' + key.split('Iteration')[1]
             modified_dict[rate_key] = value
         else:
             modified_dict[key] = value
@@ -61,7 +61,8 @@ def modify_keys(dictionary):
 
 if __name__ == '__main__':
 
-    file_path = './Outputs/loss_factor_v1.txt'
+    file_path = './Outputs/FinalTestCustom.txt'
     inputs = modify_keys(get_dict_from_file(file_path))
     plot_dictionary_data(inputs, 'val_loss_plot.png', 'A')
 
+    print(inputs)

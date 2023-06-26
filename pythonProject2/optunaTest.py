@@ -8,8 +8,27 @@ import torchmetrics
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 import wandb
-from pytorch_lightning import Trainer
-import optuna
+
+from ase.db import connect
+
+def clean_files():
+    if os.path.exists('./split.npz'):
+        os.remove('./split.npz')
+        os.remove('./splitting.lock')
+
+def data_split_fun(path, train, val):
+    db = connect(path)
+    db_len = len(db)
+    if train == 0:
+        train_data = 1
+    else:
+        train_data = int(db_len*train)
+    if val == 0:
+        val_data = 1
+    else:
+        val_data = int(db_len*val)
+    return train_data, val_data
+
 
 def get_data(data_split, dataCutoff, path):
     qm9data = QM9(
@@ -29,15 +48,12 @@ def get_data(data_split, dataCutoff, path):
     )
     return qm9data
 
-def train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_split):
-    qm9data = get_data(data_split, dataCutoff, './qm9.db')
-    qm9data.prepare_data()
-    qm9data.setup()
 
+def model_startup(trainingCutoff, n_atom_basis, lr, m_epochs, log, n_inter):
     pairwise_distance = spk.atomistic.PairwiseDistances()
-    radial_basis = spk.nn.GaussianRBF(n_rbf=20, cutoff=trainingCutoff)
+    radial_basis = spk.nn.GaussianRBF(n_rbf=n_atom_basis, cutoff=trainingCutoff)
     schnet = spk.representation.SchNet(
-        n_atom_basis=n_atom_basis, n_interactions=3,
+        n_atom_basis=n_atom_basis, n_interactions=n_inter,
         radial_basis=radial_basis,
         cutoff_fn=spk.nn.CosineCutoff(trainingCutoff)
     )
@@ -57,7 +73,7 @@ def train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_spl
         loss_weight=1.,
         metrics={
             "MAE": torchmetrics.MeanAbsoluteError(),
-            "RMSE": torchmetrics.MeanSquaredError(),
+            "MSE": torchmetrics.MeanSquaredError(),
         }
     )
 
@@ -77,47 +93,75 @@ def train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_spl
         )
     ]
 
-    wandb_logger = WandbLogger(log_model="all")
-    trainer = pl.Trainer(
-        callbacks=callbacks,
-        logger=wandb_logger,
-        default_root_dir='./qm9tut',
-        max_epochs=m_epochs,
-        accelerator="gpu",
-        devices=1,
-    )
-    trainer.fit(task, datamodule=qm9data)
+    if log:
+        wandb_logger = WandbLogger(log_model="all")
+        trainer = pl.Trainer(
+            callbacks=callbacks,
+            logger=wandb_logger,
+            default_root_dir='./qm9tut',
+            max_epochs=m_epochs,
+            accelerator="gpu",
+            devices=1,
+        )
+    else:
+        trainer = pl.Trainer(
+            callbacks=callbacks,
+            default_root_dir='./qm9tut',
+            max_epochs=m_epochs,
+            accelerator="gpu",
+            devices=1,
+        )
 
-    return trainer
+    return trainer, task
 
-def evaluate_model(trainer, data_split, cutoff, ckpt, database):
-    qm9data = get_data(data_split, cutoff, database)
-    qm9data.prepare_data()
-    qm9data.setup()
 
-    return trainer.validate(datamodule=qm9data, ckpt_path=ckpt)
+def train_model(trainer, task, data):
+    return trainer.fit(task, datamodule=data)
+
+
+def validate_model(trainer, task, data):
+    return trainer.validate(task, datamodule=data)
+
 
 def main():
-    # Define hyperparameters to search over
     run = wandb.init()
+
+    # CLEANING DATA SPLIT:
+    clean_files()
 
     batch_size = wandb.config.batch_size
     epochs = wandb.config.epochs
     lr = wandb.config.lr
 
-    trainingCutoff = wandb.config.trainingCutoff
-    dataCutoff = wandb.config.dataCutoff
+    training_cutoff = wandb.config.trainingCutoff
+    data_cutoff = wandb.config.dataCutoff
     n_atom_basis = wandb.config.n_atom_basis
+    n_inter = wandb.config.n_inter
 
-    m_epochs = epochs
-    data_split = [batch_size, 80000, 20000]  # B_size, train, val
+    # DATA FOR TRAINING:
+    t, v = data_split_fun('qm9.db', 0.8, 0.2)
+    data_split = [512, t, v]  # B_size, train, val
+    qm9data_train = get_data(data_split, data_cutoff, 'qm9.db')
+    qm9data_train.prepare_data()
+    qm9data_train.setup()
 
-    train_model(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, data_split)
+    trainer, task = model_startup(training_cutoff, n_atom_basis, lr, 20, True, n_inter)
+
+    train_model(trainer, task, qm9data_train)
+    print(trainer.validate(task, datamodule=qm9data_train))
+
+    t, v = data_split_fun('./Databases/Splited/over_18_atom.db', 0.2, 0.8)
+    data_split = [512, t, v]
+    qm9data_val = get_data(data_split, data_cutoff, './Databases/Splited/over_18_atom.db')
+    qm9data_val.setup()
+
+    output = trainer.validate(task, datamodule=qm9data_val)
+    return output
 
 def sweepFunc():
     sweep_configuration = {
-        'method': 'bayes',
-        'name': 'Sampling',
+        'method': 'random',
+        'name': 'Loss',
         'metric': {
             'goal': 'minimize',
             'name': 'val_loss'
@@ -128,25 +172,8 @@ def sweepFunc():
             'lr': {'values': [0.001]},
             'trainingCutoff': {'distribution': 'q_uniform', 'min': 3, 'max': 9, 'q': 1},
             'dataCutoff': {'distribution': 'q_uniform', 'min': 3, 'max': 9, 'q': 1},
-            'n_atom_basis': {'distribution': 'q_uniform', 'min': 24, 'max': 40, 'q': 2}
-        }
-    }
-
-    sweep_configuration_lr = {
-        'method': 'grid',
-        'name': 'Sampling',
-        'metric': {
-
-            'goal': 'minimize',
-            'name': 'val_loss'
-        },
-        'parameters': {
-            'batch_size': {'values': [512]},
-            'epochs': {'values': [40, 50]},
-            'lr': {'values': [0.001]},
-            'trainingCutoff': {'values': [5]},
-            'dataCutoff': {'values': [5]},
-            'n_atom_basis': {'values': [30]}
+            'n_atom_basis': {'distribution': 'q_uniform', 'min': 24, 'max': 40, 'q': 2},
+            'n_inter': {'distribution': 'q_uniform', 'min': 3, 'max': 15, 'q': 2}
         }
     }
 
@@ -157,10 +184,6 @@ def sweepFunc():
     wandb.agent(sweep_id, function=main, count=40)
 
 if __name__ == '__main__':
+    sweepFunc()
 
-    trainer = pl.Trainer()
-    data_split = [100, 1000, 2100]
-
-    #sweepFunc()
-    evaluate_model(trainer, data_split, 5, 'artifacts/model-suzgoern-v15/model.ckpt', 'test.db')
 

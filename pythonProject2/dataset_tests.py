@@ -59,7 +59,7 @@ def model_startup(trainingCutoff, dataCutoff, n_atom_basis, lr, m_epochs, log):
     pairwise_distance = spk.atomistic.PairwiseDistances()
     radial_basis = spk.nn.GaussianRBF(n_rbf=20, cutoff=trainingCutoff)
     schnet = spk.representation.SchNet(
-        n_atom_basis=n_atom_basis, n_interactions=3,
+        n_atom_basis=n_atom_basis, n_interactions=10,
         radial_basis=radial_basis,
         cutoff_fn=spk.nn.CosineCutoff(trainingCutoff)
     )
@@ -138,15 +138,17 @@ def main(training_path, validate_paths, folds):
     # CLEANING DATA SPLIT:
     clean_files()
 
-    m_epochs = 25
-    lr = 0.001
+    m_epochs = 30
+    lr = 0.0001
     training_cutoff = 5
     data_cutoff = 5
-    n_atom_basis = 38
+    n_atom_basis = 30
+    batch_size = 128
+
 
     # DATA FOR TRAINING:
     t, v = data_split_fun(training_path, 0.8, 0.2)
-    data_split = [512, t, v]  # B_size, train, val
+    data_split = [batch_size, t, v]  # B_size, train, val
     qm9data_train = get_data(data_split, data_cutoff, training_path)
     qm9data_train.prepare_data()
     qm9data_train.setup()
@@ -170,7 +172,7 @@ def main(training_path, validate_paths, folds):
 
             # DATA FOR VALIDATION:
             t, v = data_split_fun(path, 0.2, 0.8)
-            data_split = [512, t, v]
+            data_split = [batch_size, t, v]
             qm9data_val = get_data(data_split, data_cutoff, path)
             qm9data_val.setup()
 
@@ -180,11 +182,12 @@ def main(training_path, validate_paths, folds):
             print("VALIDATION MADE WITH: ", path)
             print(output)
 
+
             val_results[path] += output[0]['val_loss']
 
             run_path = "./Outputs/" + test_name + ".txt"
             # text = "Iteration" + str(i) + ": "
-            text = "Iteration5: "
+            text = "Iteration2: "
 
             with open(run_path, "a") as file:
                 file.write(text + ": " + str(output[0]) + "\n")
@@ -207,12 +210,9 @@ if __name__ == '__main__':
         item_path = item_path.replace('\\', '/')
         val_paths.append(item_path)
 
-    train_path = 'over_12_under_24.db'
-    test_name = 'loss_factor_v2'
+    train_path = 'qm9.db'
+    test_name = 'FinalTestCustom'
     val_loss_dic = main(train_path, val_paths, fold)
-    # plot_dictionary_data(val_loss_dic, './Plots/' + test_name)
-
-
 
 
 

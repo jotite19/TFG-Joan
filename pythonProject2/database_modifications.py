@@ -62,11 +62,11 @@ if __name__ == '__main__':
     # print(len(new_db))
 
     original_db = connect('qm9.db')
-    new_db = connect('over_12_under_24.db')
+    new_db = connect('./Databases/Splited/under_18_atoms.db')
     rows = original_db.select()
     total = 0
     for row in rows:
-        if row.natoms > 12 and row.natoms < 24:
+        if row.natoms < 18:
             new_db.write(row)
         total += 1
         print(total)

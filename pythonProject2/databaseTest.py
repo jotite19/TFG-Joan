@@ -37,6 +37,6 @@ if __name__ == '__main__':
 
     # ase db qm9.db -w
     # num_atoms_database()
-    test2()
+    print(1e-4)
 
 
