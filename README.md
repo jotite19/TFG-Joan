@@ -1,6 +1,5 @@
 
-# What neural networks can do on molecular
-properties prediction?:
+# What neural networks can do on molecular properties prediction?
 
 ## Descripció
 
